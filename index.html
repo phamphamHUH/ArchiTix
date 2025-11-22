@@ -10,6 +10,7 @@
       type="image/x-icon"
     />
     <link rel="stylesheet" href="../../css/global.css" />
+    <link rel="stylesheet" href="../../css/home.css" />
   </head>
   <body>
     <header>
@@ -20,26 +21,52 @@
         id="logo"
       />
       <nav>
-        <a href="../../index.html">Home</a>
-        <a href="../../features.html">Features</a>
-        <a href="../../buy.html">Buy Tickets</a>
-        <a href="../../sell.html">Sell Tickets</a>
-        <a href="../../about.html">About</a>
+        <a href="../../index.html" id="current">Home</a>
+        <a href="../../features.html" class="non-current">Features</a>
+        <a href="../../buy.html" class="non-current">Buy Tickets</a>
+        <a href="../../sell.html" class="non-current">Sell Tickets</a>
+        <a href="../../about.html" class="non-current">About</a>
       </nav>
       <div class="profile-wrapper">
-        <p class="greetings">Hello!</p>
+        <span id="greetings">Hello!</span>
         <div class="profile-circle">
           <img src="../../assets/icons/pfp.png" alt="User Profile Picture" />
         </div>
       </div>
     </header>
-    <hr />
     <main>
-      <section class="hero"></section>
-      <section class="events"></section>
+      <section class="hero">
+        <img
+          src="assets/images/ArchitixLight.png"
+          alt="ArchiTix Logo with Light"
+        />
+        <span id="hero-title">The Easiest Way to Fill Every Seat.</span>
+      </section>
+      <hr />
+      <section class="trending-events">
+        <h2>Trending Events</h2>
+        <div id="events"></div>
+      </section>
     </main>
     <hr />
-    <footer></footer>
-    <script src="js/global.js"></script>
+    <!-- FOOTER TAG THAT HAS SOCMED ICONS -->
+    <footer>
+      <img src="assets/icons/icon.jpg" alt="" />
+      <a href="https://www.facebook.com/randy.juanjr" target="_blank"
+        ><img src="assets/icons/facebook.png" alt="Facebook Icon"
+      /></a>
+      <a href="https://www.facebook.com/randy.juanjr" target="_blank">
+        <img src="assets/icons/instagram.png" alt="Instagram Icon" />
+      </a>
+      <a href="https://www.facebook.com/randy.juanjr" target="_blank">
+        <img src="assets/icons/twitter.png" alt="Twitter Icon" />
+      </a>
+      <!-- <a href="https://www.facebook.com/randy.juanjr" target="_blank">
+        <img src="assets/icons/youtube.png" alt="Youtube Icon" />
+      </a> -->
+    </footer>
+
+    <script src="../../js/global.js"></script>
+    <script src="../../js/home.js"></script>
   </body>
 </html>
