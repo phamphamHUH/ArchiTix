@@ -1,0 +1,73 @@
+main {
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+article {
+  max-width: 1950px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+h1 {
+  font-size: 5rem;
+  font-weight: 600;
+  color: rgb(214, 214, 214);
+  text-align: center;
+  margin-top: 1.2rem;
+}
+
+h2 {
+  font-size: 2.5rem;
+  font-weight: 600;
+}
+
+.intro {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 50px;
+  margin-bottom: 20px;
+}
+
+section div p {
+  width: 950px;
+  font-size: 1.3rem;
+  text-align: center;
+  line-height: 50px;
+}
+
+section div {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+}
+
+#missionVision {
+  display: flex;
+  align-items: start;
+  justify-content: space-evenly;
+  padding: 20px;
+}
+
+.mvWrappers {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+
+.vertical {
+  height: 380px;
+  width: 1px;
+  background-color: rgb(105, 105, 105);
+}
+
+.mvWrappers p {
+  width: 450px;
+}
