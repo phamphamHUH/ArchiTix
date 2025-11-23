@@ -41,15 +41,16 @@
             <span class="filter-icon"
               ><img src="../../assets/icons/filter.png" alt=""
             /></span>
-            <select name="filter" id="eventFilter">
-              <option>Price - Low to High</option>
-              <option>Price - High to Low</option>
-              <option>Newest First</option>
-              <option>Oldest First</option>
+            <select name="filter" id="event-filter">
+              <option value="">No Filter</option>
+              <option value="Price - Low to High">Price - Low to High</option>
+              <option value="Price - High to Low">Price - High to Low</option>
+              <option value="Newest First">Newest First</option>
+              <option value="Oldest First">Oldest First</option>
             </select>
           </div>
           <div class="search-wrapper">
-            <input type="text" placeholder="Search Event" />
+            <input type="text" placeholder="Search Event" id="search-input" />
             <span class="search-icon"
               ><img src="../../assets/icons/search.png" alt=""
             /></span>

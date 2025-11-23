@@ -1,0 +1,83 @@
+main {
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 100px;
+}
+
+h1 {
+  font-size: 5rem;
+  font-weight: 600;
+  color: rgb(214, 214, 214);
+  text-align: center;
+  margin-top: 1.2rem;
+}
+
+h2 {
+  font-size: 2.5rem;
+  text-align: center;
+}
+
+section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 100px;
+}
+
+section p {
+  width: 900px;
+  font-size: 1.35rem;
+  text-align: center;
+}
+
+button {
+  background-color: black;
+  font-size: 2.2rem;
+  color: rgb(255, 255, 255);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  border: rgb(144, 142, 142) solid;
+  border-width: 1px;
+  padding: 20px;
+  margin-top: 30px;
+  cursor: pointer;
+}
+
+button div {
+  background-color: rgb(144, 142, 142);
+  border-radius: 50%;
+  padding: 5px;
+}
+
+button img {
+  width: 100px;
+}
+
+.wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 60px;
+}
+
+.wrapper .sample-images {
+  width: 500px;
+  height: 500px;
+  align-self: center;
+}
+
+.text-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+}
+
+.text-wrapper p {
+  width: 650px;
+}

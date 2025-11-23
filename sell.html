@@ -10,24 +10,92 @@
       type="image/x-icon"
     />
     <link rel="stylesheet" href="../../css/global.css" />
+    <link rel="stylesheet" href="../../css/sell.css" />
   </head>
   <body>
     <header>
-      <img src="../../assets/images/ArchiTix.png" alt="ArchiTix Logo" />
+      <div id="mouse-glow"></div>
+      <img
+        src="../../assets/images/ArchiTix.png"
+        alt="ArchiTix Logo"
+        id="logo"
+      />
       <nav>
-        <a href="../../index.html">Home</a>
-        <a href="../../features.html">Features</a>
-        <a href="../../buy.html">Buy Tickets</a>
-        <a href="../../sell.html">Sell Tickets</a>
-        <a href="../../about.html">About</a>
+        <a href="../../index.html" class="non-current">Home</a>
+        <a href="../../features.html" class="non-current">Features</a>
+        <a href="../../buy.html" class="non-current">Buy Tickets</a>
+        <a href="../../sell.html" id="current">Sell Tickets</a>
+        <a href="../../about.html" class="non-current">About</a>
       </nav>
       <div class="profile-wrapper">
-        <p class="greetings"></p>
         <div class="profile-circle">
           <img src="../../assets/icons/pfp.png" alt="User Profile Picture" />
         </div>
       </div>
     </header>
-    sell
+    <main>
+      <h1>Sell Tickets</h1>
+      <section>
+        <div class="wrapper">
+          <div class="text-wrapper">
+            <h2>Floor Plan Designer</h2>
+            <p>
+              Create and customize your own seating layouts with our easy
+              drag-and-drop floor plan tool. Design, edit, and save venues for
+              any event.
+            </p>
+            <button onclick="buttonAlert('design')">
+              <img src="../../assets/images/edit.png" alt="Edit Icon." />Custom
+              Event Place
+            </button>
+          </div>
+          <img
+            src="../../assets/images/Customized.png"
+            alt="Customized Stadium Sample"
+            class="sample-images"
+          />
+        </div>
+        <div class="wrapper">
+          <div class="text-wrapper">
+            <h2>Popular Venues</h2>
+            <p>
+              Access ready-made layouts of popular Philippine venues. Customize
+              them instantly to fit your event — no need to start from scratch.
+            </p>
+            <button onclick="buttonAlert('venue')">
+              <img
+                src="../../assets/images/answer.png"
+                alt="Answer Icon."
+              />Choose Event Place
+            </button>
+          </div>
+          <img
+            src="../../assets/images/ChooseVenue.png"
+            alt="Venue Sample"
+            class="sample-images"
+          />
+        </div>
+      </section>
+    </main>
+    <hr />
+    <!-- FOOTER TAG THAT CONTAINS SOCMED LINKS -->
+    <footer>
+      <img src="assets/icons/icon.jpg" alt="" />
+      <a href="https://www.facebook.com/randy.juanjr" target="_blank"
+        ><img src="assets/icons/facebook.png" alt="Facebook Icon"
+      /></a>
+      <a href="https://www.facebook.com/randy.juanjr" target="_blank">
+        <img src="assets/icons/instagram.png" alt="Instagram Icon" />
+      </a>
+      <a href="https://www.facebook.com/randy.juanjr" target="_blank">
+        <img src="assets/icons/twitter.png" alt="Twitter Icon" />
+      </a>
+      <!-- <a href="https://www.facebook.com/randy.juanjr" target="_blank">
+        <img src="assets/icons/youtube.png" alt="Youtube Icon" />
+      </a> -->
+    </footer>
+
+    <script src="../../js/global.js"></script>
+    <script src="../../js/sell.js"></script>
   </body>
 </html>

@@ -25,9 +25,14 @@ header {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 0 30px 0 30px;
+  margin: 0;
   height: 100px;
   gap: 200px;
+  width: 100%;
+  top: 0;
+  left: 0;
+  position: fixed;
+  z-index: 1000;
 }
 
 header img {
@@ -102,6 +107,13 @@ nav .non-current:hover {
   width: 100px;
   text-align: right;
 }
+#logo {
+  transition: transform 0.3s ease-in-out;
+}
+
+#logo:hover {
+  transform: rotate(10deg) scale(1.05);
+}
 
 /* CSS FOR MOUSE GLOW FEATURE */
 #mouse-glow {
@@ -123,6 +135,11 @@ nav .non-current:hover {
   transition: transform 0.15s ease;
   z-index: 9999;
 }
+
+main {
+  margin-top: 100px;
+}
+
 /* FOOTER RELATED CSS */
 footer {
   height: 150px;
