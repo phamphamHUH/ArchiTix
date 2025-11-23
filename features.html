@@ -10,24 +10,85 @@
       type="image/x-icon"
     />
     <link rel="stylesheet" href="../../css/global.css" />
+    <link rel="stylesheet" href="../../css/features.css" />
   </head>
   <body>
     <header>
-      <img src="../../assets/images/ArchiTix.png" alt="ArchiTix Logo" />
+      <div id="mouse-glow"></div>
+      <img
+        src="../../assets/images/ArchiTix.png"
+        alt="ArchiTix Logo"
+        id="logo"
+      />
       <nav>
-        <a href="../../index.html">Home</a>
-        <a href="../../features.html">Features</a>
-        <a href="../../buy.html">Buy Tickets</a>
-        <a href="../../sell.html">Sell Tickets</a>
-        <a href="../../about.html">About</a>
+        <a href="../../index.html" class="non-current">Home</a>
+        <a href="../../features.html" id="current">Features</a>
+        <a href="../../buy.html" class="non-current">Buy Tickets</a>
+        <a href="../../sell.html" class="non-current">Sell Tickets</a>
+        <a href="../../about.html" class="non-current">About</a>
       </nav>
       <div class="profile-wrapper">
-        <p class="greetings"></p>
         <div class="profile-circle">
           <img src="../../assets/icons/pfp.png" alt="User Profile Picture" />
         </div>
       </div>
     </header>
-    feaatures
+    <main>
+      <h1>Features</h1>
+      <section>
+        <h3>Buy Tickets</h3>
+        <div class="contents">
+          <p>
+            Discover and book tickets for concerts, movies, theaters, and small
+            events - all in one place. Architix gives you an interactive seat
+            map, letting you choose your perfect spot before checkout. Whether
+            it’s a grand concert or a cozy gathering, buying tickets has never
+            been this simple and visual.
+          </p>
+          <img
+            src="../../assets/images/Theater.png"
+            alt="An image of customized theater stadium.  "
+            id="stadium"
+          />
+        </div>
+      </section>
+      <section>
+        <h3>Sell Tickets</h3>
+        <div class="contents">
+          <p>
+            Create and manage your own events with ease. Architix lets you
+            design custom seating layouts, set prices, and track sales — all in
+            one platform. Whether you’re hosting a concert, a play, or a small
+            gathering, you have full control over how your audience books their
+            seats.
+          </p>
+          <img
+            src="../../assets/images/Conference.png"
+            alt="An image of customized conference hall."
+            id="hall"
+          />
+        </div>
+      </section>
+    </main>
+    <hr />
+    <!-- FOOTER TAG THAT CONTAINS SOCMED LINKS -->
+    <footer>
+      <img src="assets/icons/icon.jpg" alt="" />
+      <a href="https://www.facebook.com/randy.juanjr" target="_blank"
+        ><img src="assets/icons/facebook.png" alt="Facebook Icon"
+      /></a>
+      <a href="https://www.facebook.com/randy.juanjr" target="_blank">
+        <img src="assets/icons/instagram.png" alt="Instagram Icon" />
+      </a>
+      <a href="https://www.facebook.com/randy.juanjr" target="_blank">
+        <img src="assets/icons/twitter.png" alt="Twitter Icon" />
+      </a>
+      <!-- <a href="https://www.facebook.com/randy.juanjr" target="_blank">
+        <img src="assets/icons/youtube.png" alt="Youtube Icon" />
+      </a> -->
+    </footer>
+
+    <script src="../../js/global.js"></script>
+    <script src="../../js/home.js"></script>
   </body>
 </html>

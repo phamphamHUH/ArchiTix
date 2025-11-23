@@ -1,0 +1,169 @@
+main {
+  letter-spacing: 2px;
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+}
+
+h1 {
+  font-size: 5rem;
+  font-weight: 600;
+  color: rgb(214, 214, 214);
+  text-align: center;
+  margin-top: 1.2rem;
+}
+
+h2 {
+  font-size: 2.5rem;
+  font-weight: 600;
+}
+
+h3 {
+  font-size: 2rem;
+  font-weight: 500;
+}
+
+h5 {
+  font-size: 1rem;
+  font-weight: 400;
+  color: rgb(144, 142, 142);
+}
+
+section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+}
+
+#glow {
+  position: absolute;
+  top: 150px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 175px;
+  height: 100px;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(255, 255, 255, 0.6) 0%,
+    rgba(255, 255, 255, 0.4) 40%,
+    rgba(0, 0, 0, 0) 70%
+  );
+  filter: blur(30px);
+  pointer-events: none;
+}
+
+.filter-wrapper {
+  border: white solid;
+  border-width: 1px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2px 20px 2px 20px;
+}
+
+.filters {
+  width: 1450px;
+  display: flex;
+  justify-content: space-between;
+}
+
+select {
+  background-color: black;
+  color: rgb(90, 89, 89);
+  padding: 5px;
+  border: none;
+}
+
+.filters img {
+  width: 25px;
+  cursor: pointer;
+  margin-top: 5px;
+}
+
+.search-wrapper {
+  border: white solid;
+  border-width: 1px;
+  gap: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2px 10px 2px 5px;
+}
+
+input {
+  background-color: black;
+  border: none;
+  padding: 5px;
+  width: 400px;
+  height: 40px;
+  text-align: center;
+}
+
+.search-wrapper span {
+  background-color: black;
+  color: rgb(90, 89, 89);
+}
+
+.search-wrapper img {
+  margin-top: 10px;
+}
+
+.events {
+  display: grid;
+  width: 100%;
+  max-width: 1500px;
+  grid-template-columns: 1fr 1fr;
+}
+
+.events .showing {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.events .upcoming {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+button {
+  background-color: black;
+  color: rgb(144, 142, 142);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  border: rgb(144, 142, 142) solid;
+  border-width: 1px;
+  padding: 5px;
+  margin-top: 10px;
+}
+
+button div {
+  background-color: rgb(144, 142, 142);
+  border-radius: 50%;
+  padding: 5px;
+}
+
+button img {
+  width: 15px;
+}
+
+.event {
+  display: flex;
+  justify-content: flex-start;
+  gap: 20px;
+}
+
+.event .eventDetails {
+  margin-top: 50px;
+}
+
+.event .sample {
+  width: 400px;
+}

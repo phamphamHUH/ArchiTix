@@ -1,8 +1,4 @@
 const heroTitle = document.getElementById("hero-title");
-const user = "Marc Jodel";
-const userGreet = document.getElementById("greetings");
-
-userGreet.textContent = `Hello ${user}!`;
 
 heroTitle.addEventListener("mouseenter", () => {
   heroTitle.textContent = "Discover Amazing Events.";

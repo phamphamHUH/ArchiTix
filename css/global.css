@@ -1,19 +1,33 @@
 /* CONTAINS CSS THAT IS APPLIED TO ALL HTML FILES */
+@font-face {
+  font-family: "DMSans";
+  src: url("/static/fonts/DMSans-VariableFont_opsz,wght.ttf") format("truetype");
+  font-weight: 100 900;
+  font-style: normal;
+}
+:root {
+  --text-color: #eeedea;
+  --current-color: #585858;
+  --noncurrent-color: #ffffff;
+  --noncurrent-hover-color: #9c9c9c;
+}
 * {
   margin: 0;
   padding: 0;
   line-height: 1.2;
   background-color: black;
-  color: #eeedea;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color: var(--text-color);
+  font-family: "DMSans", sans-serif;
+  letter-spacing: 1px;
 }
 /* HEADER RELATED CSS */
 header {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   margin: 0 30px 0 30px;
   height: 100px;
+  gap: 200px;
 }
 
 header img {
@@ -21,39 +35,34 @@ header img {
   height: auto;
 }
 
-header span {
-  font-size: 1.15rem;
-  font-weight: 500;
-}
-
 nav {
   display: flex;
   align-items: center;
-  gap: 60px;
-  margin-left: 60px;
+  justify-content: center;
+  gap: 80px;
+  width: 800px;
+  white-space: nowrap;
 }
 
 nav a {
   text-decoration: none;
-  margin-left: 1.5rem;
   font-weight: 700;
 }
 
 nav .non-current {
-  color: #ffffff;
+  color: var(--noncurrent-color);
   transition: color 0.3s ease;
   font-size: 1.3rem;
 }
 nav #current {
-  margin-left: 1.5rem;
-  padding: 2px 10px 5px 10px;
   text-decoration: none;
-  color: #585858;
-  font-size: 2rem;
+  color: var(--current-color);
+  font-size: 1.3rem;
+  transform: scale(1.4);
 }
 
 nav .non-current:hover {
-  color: #9c9c9c;
+  color: var(--noncurrent-hover-color);
   transform: scale(1.1);
 }
 
@@ -84,7 +93,14 @@ nav .non-current:hover {
   height: 100%;
   object-fit: cover;
   border-radius: 50%;
-  background-color: white;
+  background-color: var(--noncurrent-hover-color);
+}
+
+.profile-wrapper span {
+  font-size: 1.15rem;
+  font-weight: 500;
+  width: 100px;
+  text-align: right;
 }
 
 /* CSS FOR MOUSE GLOW FEATURE */
@@ -115,7 +131,7 @@ footer {
   justify-content: center;
   gap: 7rem;
   background-color: #000000;
-  color: #fff;
+  color: var(--noncurrent-hover-color);
   text-align: center;
   padding: 1.5rem;
 }
@@ -126,6 +142,6 @@ footer img {
 }
 
 footer a {
-  color: #fff;
+  color: var(--text-color);
   text-decoration: underline;
 }
