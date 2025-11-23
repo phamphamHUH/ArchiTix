@@ -5,6 +5,8 @@ main {
   gap: 50px;
 }
 
+/* HEADINGS' STYLES */
+
 h1 {
   font-size: 5rem;
   font-weight: 600;
@@ -16,6 +18,7 @@ h1 {
 h2 {
   font-size: 2.5rem;
   font-weight: 600;
+  margin-left: 20px;
 }
 
 h3 {
@@ -29,6 +32,8 @@ h5 {
   color: rgb(144, 142, 142);
 }
 
+/* SECTION CSS */
+
 section {
   display: flex;
   flex-direction: column;
@@ -37,22 +42,7 @@ section {
   gap: 30px;
 }
 
-#glow {
-  position: absolute;
-  top: 150px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 175px;
-  height: 100px;
-  background: radial-gradient(
-    ellipse at center,
-    rgba(255, 255, 255, 0.6) 0%,
-    rgba(255, 255, 255, 0.4) 40%,
-    rgba(0, 0, 0, 0) 70%
-  );
-  filter: blur(30px);
-  pointer-events: none;
-}
+/* FILTER AND SEARCH FEATURE STYLES */
 
 .filter-wrapper {
   border: white solid;
@@ -109,61 +99,98 @@ input {
 .search-wrapper img {
   margin-top: 10px;
 }
+/* EVENT STYLES */
 
-.events {
+.events-wrapper {
   display: grid;
-  width: 100%;
-  max-width: 1500px;
   grid-template-columns: 1fr 1fr;
+  padding: 15px;
 }
 
-.events .showing {
+.events-wrapper .showing,
+.events-wrapper .upcoming {
   display: flex;
-  align-items: center;
+  align-items: start;
   justify-content: center;
   flex-direction: column;
+  gap: 30px;
 }
 
-.events .upcoming {
+#events-showing,
+#events-upcoming {
+  width: 100%;
   display: flex;
-  align-items: center;
-  justify-content: center;
   flex-direction: column;
-}
-
-button {
-  background-color: black;
-  color: rgb(144, 142, 142);
-  display: flex;
-  align-items: center;
   justify-content: center;
-  gap: 5px;
-  border: rgb(144, 142, 142) solid;
-  border-width: 1px;
-  padding: 5px;
-  margin-top: 10px;
-}
-
-button div {
-  background-color: rgb(144, 142, 142);
-  border-radius: 50%;
-  padding: 5px;
-}
-
-button img {
-  width: 15px;
+  gap: 50px;
+  margin-bottom: 50px;
 }
 
 .event {
   display: flex;
-  justify-content: flex-start;
   gap: 20px;
+  flex-shrink: 0;
 }
 
 .event .eventDetails {
   margin-top: 50px;
 }
 
-.event .sample {
-  width: 400px;
+.event img {
+  width: 100%;
+  max-width: 450px;
+  height: 235px;
+  object-fit: cover;
+  display: block;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+}
+
+.event .image:hover {
+  filter: brightness(1.4);
+  transform: scale(1.05);
+}
+
+.eventDetails button {
+  background-color: black;
+  color: rgb(144, 142, 142);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  border: 1px solid rgb(144, 142, 142);
+  padding: 5px 10px;
+  margin-top: 10px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.eventDetails button div {
+  background-color: rgb(144, 142, 142);
+  border-radius: 50%;
+  width: 25px;
+  height: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.eventDetails button div img {
+  width: 15px;
+  height: 15px;
+  background-color: rgb(144, 142, 142);
+  object-fit: contain;
+  display: block;
+  transition: all 0.3s ease;
+}
+
+.eventDetails button:hover {
+  background-color: rgb(144, 142, 142);
+  color: black;
+  border-color: black;
+  transform: scale(1.05);
+  transition: all 0.2s ease-in-out;
 }

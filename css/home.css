@@ -23,7 +23,7 @@
 #events {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(600px, 1fr));
-  gap: 40px;
+  gap: 50px;
   align-items: start;
 }
 
@@ -61,7 +61,7 @@ h2 {
 }
 
 h3 {
-  font-size: 2rem;
+  font-size: 1.75rem;
   font-weight: 500;
 }
 
