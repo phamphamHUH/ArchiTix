@@ -124,10 +124,12 @@ events.forEach((e) => {
       <h5>Event's Place: ${e.place}</h5>
       <h5>Price: ${e.price}</h5>
       <h5>Date: ${e.date}</h5>
-      <button>
-        <div><img src="../../assets/icons/seat.png" alt="Seat Icon" /></div>
-        View Seats
-      </button>
+        <a href="../../event-details.html">
+          <button>
+            <div><img src="../../assets/icons/seat.png" alt="Seat Icon" /></div>
+            View Seats
+          </button>
+        </a>
     </div>
     
   `;
@@ -208,10 +210,12 @@ function filter(filterCriteria) {
         <h5>Event's Place: ${e.place}</h5>
         <h5>Price: ${e.price}</h5>
         <h5>Date: ${e.date}</h5>
-        <button>
-          <div><img src="../../assets/icons/seat.png" alt="Seat Icon" /></div>
-          View Seats
-        </button>
+        <a href="../../event-details.html">
+          <button>
+            <div><img src="../../assets/icons/seat.png" alt="Seat Icon" /></div>
+            View Seats
+          </button>
+        </a>
       </div>
     `;
     if (e.status === "upcoming") upcomingContainer.appendChild(card);
@@ -245,10 +249,12 @@ function search(searchValue) {
         <h5>Event's Place: ${e.place}</h5>
         <h5>Price: ${e.price}</h5>
         <h5>Date: ${e.date}</h5>
-        <button>
-          <div><img src="../../assets/icons/seat.png" alt="Seat Icon" /></div>
-          View Seats
-        </button>
+        <a href="../../event-details.html">
+          <button>
+            <div><img src="../../assets/icons/seat.png" alt="Seat Icon" /></div>
+            View Seats
+          </button>
+        </a>
       </div>
     `;
     if (e.status === "upcoming") upcomingContainer.appendChild(card);

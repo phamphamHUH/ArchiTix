@@ -147,7 +147,7 @@ footer {
   align-items: center;
   justify-content: center;
   gap: 7rem;
-  background-color: #000000;
+  background-color: black;
   color: var(--noncurrent-hover-color);
   text-align: center;
   padding: 1.5rem;
@@ -156,6 +156,11 @@ footer {
 footer img {
   width: 55px;
   cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+footer img:hover {
+  transform: scale(1.1);
 }
 
 footer a {

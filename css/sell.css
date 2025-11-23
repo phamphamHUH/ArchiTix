@@ -24,6 +24,7 @@ section {
   align-items: center;
   justify-content: center;
   gap: 100px;
+  margin-bottom: 30px;
 }
 
 section p {
@@ -80,4 +81,8 @@ button img {
 
 .text-wrapper p {
   width: 650px;
+}
+
+a {
+  text-decoration: none;
 }
