@@ -42,3 +42,15 @@ window.addEventListener("click", (e) => {
     iconsPopup.style.display = "none";
   }
 });
+
+const tools = [
+  "../../assets/images/SelectTool.png",
+  "../../assets/images/SelectSeats.png",
+  "../../assets/images/SelectionBrush.png",
+  "../../assets/images/InsertRow.png",
+  "../../assets/images/SelectTool.png",
+  "../../assets/images/InsertSquare.png",
+  "../../assets/images/TextBox.png",
+  "../../assets/images/InsertImage.png",
+  "../../assets/images/AllGender.png",
+];
