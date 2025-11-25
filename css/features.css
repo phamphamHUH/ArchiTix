@@ -2,15 +2,32 @@ main {
   padding: 2rem;
   display: flex;
   flex-direction: column;
-  gap: 100px;
+  gap: 80px;
+  position: relative;
 }
 
-h1 {
-  font-size: 5rem;
-  font-weight: 600;
-  color: rgb(214, 214, 214);
-  text-align: center;
-  margin-top: 0.5rem;
+img {
+  width: 350px;
+  align-self: center;
+  margin-top: 30px;
+}
+
+/* HEADER GLOW EFFECT */
+#glow {
+  position: absolute;
+  top: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 150px;
+  height: 60px;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(255, 255, 255, 0.9) 10%,
+    rgba(255, 255, 255, 0.5) 40%,
+    rgba(0, 0, 0, 0) 70%
+  );
+  filter: blur(25px);
+  pointer-events: none;
 }
 
 section {

@@ -1,7 +1,8 @@
 /* CONTAINS CSS THAT IS APPLIED TO ALL HTML FILES */
 @font-face {
   font-family: "DMSans";
-  src: url("/static/fonts/DMSans-VariableFont_opsz,wght.ttf") format("truetype");
+  src: url("../../assets/fonts/DMSans-VariableFont_opsz,wght.ttf")
+    format("truetype");
   font-weight: 100 900;
   font-style: normal;
 }
@@ -115,13 +116,13 @@ nav .non-current:hover {
   width: 100px;
   text-align: right;
 }
-#logo {
+/* #logo {
   transition: transform 0.3s ease-in-out;
 }
 
 #logo:hover {
   transform: rotate(10deg) scale(1.05);
-}
+} */
 
 /* CSS FOR MOUSE GLOW FEATURE */
 #mouse-glow {

@@ -3,6 +3,31 @@ main {
   display: flex;
   flex-direction: column;
   gap: 100px;
+  position: relative;
+}
+
+/* HEADER GLOW EFFECT */
+#glow {
+  position: absolute;
+  top: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 200px;
+  height: 50px;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(255, 255, 255, 0.9) 10%,
+    rgba(255, 255, 255, 0.5) 40%,
+    rgba(0, 0, 0, 0) 70%
+  );
+  filter: blur(25px);
+  pointer-events: none;
+}
+
+img {
+  width: 410px;
+  align-self: center;
+  margin-top: 30px;
 }
 
 h1 {

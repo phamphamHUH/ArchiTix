@@ -1,0 +1,277 @@
+main {
+  height: 554px;
+  position: relative;
+  padding-top: 40px;
+  background-color: #1f1f1f;
+}
+
+.tools hr {
+  width: 50px;
+}
+.event-info hr {
+  width: 250px;
+}
+
+.tools {
+  background-color: #1f1f1f;
+  width: 50px;
+  height: 554px;
+  position: absolute;
+  left: 0px;
+  top: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+}
+.canvas {
+  background-color: white;
+  height: inherit;
+}
+
+.event-info {
+  background-color: #1f1f1f;
+  width: 250px;
+  height: 554px;
+  position: absolute;
+  right: 0px;
+  top: 40px;
+}
+
+.tools img {
+  width: 38px;
+  background-color: #1f1f1f;
+  transition: all 0.3s ease;
+}
+
+.tools img:hover {
+  transform: scale(1.1);
+}
+
+.tools img:active {
+  filter: opacity(0.4);
+  transform: scale(0.9);
+}
+
+h3 {
+  background-color: #1f1f1f;
+}
+
+/* CATEGORY CSS */
+
+.category {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 10px;
+  padding: 10px;
+  background-color: #1f1f1f;
+}
+
+select {
+  padding: 8px;
+  border-radius: 20px;
+  background-color: white;
+  color: black;
+}
+
+/* SEAT LABEL and SEAT DESIGN CSS */
+
+.seat-label,
+.seat-design {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 10px;
+  background-color: #1f1f1f;
+  padding: 10px;
+}
+
+label {
+  background-color: #1f1f1f;
+  font-size: 0.9rem;
+  margin-left: 8px;
+}
+
+.seat-label div,
+.seat-design div {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  background-color: #1f1f1f;
+}
+
+.seat-label input {
+  width: 100px;
+  border: solid white;
+  border-width: 1px;
+  padding: 10px;
+  border-radius: 5px;
+  background-color: #1f1f1f;
+}
+
+.seat-design input {
+  background-color: #1f1f1f;
+  border: none;
+  width: 80px;
+  height: 40px;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+.color-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.color-wrapper label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin: 0;
+  margin-left: 8px;
+}
+
+/* LABEL MARGINS */
+
+#number {
+  margin-left: 37px;
+}
+
+#desc {
+  margin-left: 12px;
+}
+
+#price {
+  margin-left: 57px;
+}
+
+#reserved {
+  margin-left: 20px;
+}
+#vacant {
+  margin-left: 39px;
+}
+
+/* BUTTON CSS */
+button {
+  background-color: #7ed957;
+  width: 150px;
+  color: black;
+  padding: 15px 20px 15px 20px;
+  font-weight: 600;
+  border-radius: 10px;
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  translate: -50%;
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  transform: scale(1.1);
+}
+
+button:active {
+  filter: opacity(0.4);
+  transform: scale(1);
+}
+
+/* FOR POP-UP TOOLS */
+.popup-content-1 {
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  width: 60px;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  border-radius: 20px;
+  background-color: #1f1f1f;
+}
+
+.popup-content-1 p {
+  font-size: 8px;
+  background-color: #1f1f1f;
+}
+
+.popup-1 {
+  display: none;
+  position: fixed;
+  top: 275px;
+  left: 60px;
+  border-radius: 20px;
+}
+
+.popup-content-2 {
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  width: 30px;
+  height: 80px;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  border-radius: 20px;
+  background-color: #1f1f1f;
+}
+
+.circle {
+  width: 25px;
+  height: 25px;
+  border: solid white;
+  border-radius: 50%;
+  background-color: #1f1f1f;
+  transition: all 0.3s ease;
+}
+.square {
+  width: 25px;
+  height: 25px;
+  border: solid white;
+  border-radius: 10px;
+  background-color: #1f1f1f;
+  transition: all 0.3s ease;
+}
+
+.square:hover,
+.circle:hover {
+  transform: scale(1.1);
+}
+
+.square:active,
+.circle:active {
+  filter: opacity(0.4);
+  transform: scale(0.9);
+}
+
+.popup-2 {
+  display: none;
+  position: fixed;
+  top: 360px;
+  left: 60px;
+  border-radius: 20px;
+}
+
+.popup-content-3 {
+  padding: 10px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  width: 170px;
+  align-items: center;
+  justify-content: center;
+  justify-items: center;
+  align-content: center;
+  gap: 2px;
+  border-radius: 20px;
+  background-color: #1f1f1f;
+}
+
+.popup-3 {
+  display: none;
+  position: fixed;
+  top: 420px;
+  left: 60px;
+  border-radius: 20px;
+}
