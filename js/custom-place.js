@@ -54,3 +54,21 @@ const tools = [
   "../../assets/images/InsertImage.png",
   "../../assets/images/AllGender.png",
 ];
+
+const rows = [
+  "../../assets/images/InsertRow.png",
+  "../../assets/images/InsertRows.png",
+  "../../assets/images/InsertCircle.png",
+];
+
+const icons = [
+  "../../assets/images/InsertRow.png",
+  "../../assets/images/InsertRows.png",
+  "../../assets/images/InsertCircle.png",
+  "../../assets/images/InsertRow.png",
+  "../../assets/images/InsertRows.png",
+  "../../assets/images/InsertCircle.png",
+  "../../assets/images/InsertRow.png",
+  "../../assets/images/InsertRows.png",
+  "../../assets/images/InsertCircle.png",
+];
