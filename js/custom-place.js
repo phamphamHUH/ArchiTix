@@ -1,3 +1,86 @@
+const tools = [
+  {
+    src: "../../assets/icons/SelectTool.png",
+    id: "non-clickable",
+  },
+  {
+    src: "../../assets/icons/SelectSeats.png",
+    id: "non-clickable",
+  },
+  {
+    src: "../../assets/icons/SelectionBrush.png",
+    id: "non-clickable",
+  },
+  {
+    src: "../../assets/icons/InsertRow.png",
+    id: "seat-icons",
+  },
+  {
+    src: "../../assets/icons/Line.png",
+    id: "non-clickable",
+  },
+  {
+    src: "../../assets/icons/InsertSquare.png",
+    id: "shapes",
+  },
+  {
+    src: "../../assets/icons/TextBox.png",
+    id: "non-clickable",
+  },
+  {
+    src: "../../assets/icons/InsertImage.png",
+    id: "non-clickable",
+  },
+  {
+    src: "../../assets/icons/AllGender.png",
+    id: "icons",
+  },
+];
+
+const rows = [
+  "../../assets/icons/InsertRow.png",
+  "../../assets/icons/InsertRows.png",
+];
+
+const icons = [
+  "../../assets/icons/AllGender.png",
+  "../../assets/icons/Male.png",
+  "../../assets/icons/Female.png",
+  "../../assets/icons/FoodSection.png",
+  "../../assets/icons/DrinkSection.png",
+  "../../assets/icons/Stairs.png",
+  "../../assets/icons/Exit.png",
+  "../../assets/icons/PWD.png",
+  "../../assets/icons/Warning.png",
+];
+
+const seatPopupContent = document.querySelector(".popup-content-1");
+const iconsPopupContent = document.querySelector(".popup-content-3");
+const toolsContent = document.querySelector(".tools-container");
+
+function loadImages(array, container) {
+  container.innerHTML = "";
+  array.forEach((item) => {
+    const img = document.createElement("img");
+
+    if (typeof item === "string") {
+      // For rows[], icons[]
+      img.src = item;
+    } else {
+      // For tools[]
+      img.src = item.src;
+      img.id = item.id;
+    }
+
+    img.alt = "Tools";
+    container.appendChild(img);
+  });
+}
+
+loadImages(rows, seatPopupContent);
+loadImages(icons, iconsPopupContent);
+loadImages(tools, toolsContent);
+
 const seatIcon = document.getElementById("seat-icons");
 const seatPopup = document.getElementById("popup-1");
 const shapeIcon = document.getElementById("shapes");
@@ -42,33 +125,3 @@ window.addEventListener("click", (e) => {
     iconsPopup.style.display = "none";
   }
 });
-
-const tools = [
-  "../../assets/images/SelectTool.png",
-  "../../assets/images/SelectSeats.png",
-  "../../assets/images/SelectionBrush.png",
-  "../../assets/images/InsertRow.png",
-  "../../assets/images/SelectTool.png",
-  "../../assets/images/InsertSquare.png",
-  "../../assets/images/TextBox.png",
-  "../../assets/images/InsertImage.png",
-  "../../assets/images/AllGender.png",
-];
-
-const rows = [
-  "../../assets/images/InsertRow.png",
-  "../../assets/images/InsertRows.png",
-  "../../assets/images/InsertCircle.png",
-];
-
-const icons = [
-  "../../assets/images/InsertRow.png",
-  "../../assets/images/InsertRows.png",
-  "../../assets/images/InsertCircle.png",
-  "../../assets/images/InsertRow.png",
-  "../../assets/images/InsertRows.png",
-  "../../assets/images/InsertCircle.png",
-  "../../assets/images/InsertRow.png",
-  "../../assets/images/InsertRows.png",
-  "../../assets/images/InsertCircle.png",
-];

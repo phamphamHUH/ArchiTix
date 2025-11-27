@@ -42,7 +42,7 @@
       <section>
         <div class="wrapper">
           <div class="text-wrapper">
-            <h2>Floor Plan Designer</h2>
+            <h2 id="custom-event">Floor Plan Designer</h2>
             <p>
               Create and customize your own seating layouts with our easy
               drag-and-drop floor plan tool. Design, edit, and save venues for
@@ -68,12 +68,12 @@
         </div>
         <div class="wrapper">
           <div class="text-wrapper">
-            <h2>Popular Venues</h2>
+            <h2 class="templated-event">Popular Venues</h2>
             <p>
               Access ready-made layouts of popular Philippine venues. Customize
               them instantly to fit your event — no need to start from scratch.
             </p>
-            <a href="../../instant-place.html">
+            <a href="../../templated-place.html">
               <button>
                 <img
                   src="../../assets/images/answer.png"
@@ -94,61 +94,58 @@
       </section>
     </main>
     <hr />
-    <!-- FOOTER TAG THAT CONTAINS SOCMED LINKS -->
+    <!-- FOOTER TAG THAT HAS SOCMED ICONS -->
     <footer>
-      <div class="row-1">
-        <h2>Popular Event Places</h2>
-        <a href="https://www.smxconventioncenter.com/">
-          <img src="/assets/icons/SMXCC.webp" alt="SMX Convention Center">
-        </a>
-        <a href="https://www.mallofasia-arena.com/">
-          <img src="/assets/icons/SM-MOA-Arena-Logo-white-small.webp" alt="SM MOA Arena"></a>
-        <a href="https://smartaranetacoliseum.com/">
-          <img src="/assets/icons/AranetaColiseum.png" alt="Araneta Coliseum">
-        </a>
-      </div>
-      <div class="row-2">
-        <div class="col-1">
-          <h3>ArchiTix</h3>
-          <a href="index.html">Home</a>
-          <a href="about.html">About</a>
-          <a href="sell.html">Sell Tickets</a>
-          <a href="buy.html">Buy Tickets</a>
-          <a href="features.html">Features</a>
+      <section class="popular-events">
+        <h4>Popular Categories</h4>
+        <div class="contents" id="contents-container"></div>
+      </section>
+
+      <section class="row-2">
+        <div class="about">
+          <h4>Get to Know Us</h4>
+          <div class="contents">
+            <a href="../../features.html"><h5>What we do?</h5></a>
+            <a href="../../about.html"><h5>Who we are?</h5></a>
+            <a href="../../about.html#missionVision"
+              ><h5>Our Mission & Vision</h5></a
+            >
+            <a href="#"><h5>Help</h5></a>
+          </div>
         </div>
-        <div class="col-2">
-          <h3>Support & Join Us</h3>
-          <form>
-            <input type="text" placeholder="Your Email">
-            <br>
-            <button type="submit">Donate!</button>
-            <button type="submit">Join!</button>
-          </form>
+
+        <div class="customer-support">
+          <h4>Become a User</h4>
+          <div class="contents">
+            <a href="../../sell.html"><h5>Be an Organizer</h5></a>
+            <a href="../../buy.html"><h5>Be a Customer</h5></a>
+            <a href="../../sell.html#custom-event"
+              ><h5>Create Custom Events</h5></a
+            >
+            <a href="../../sell.html#templated-event"
+              ><h5>Choose the Best Place</h5></a
+            >
+          </div>
         </div>
-        <div class="col-3">
-          <h3>Contact & Social Media</h3>
+
+        <div class="connect">
+          <h1>Connect with Us</h1>
+          <div class="socmed" id="socmed-container"></div>
+        </div>
+      </section>
+
+      <section class="end-part">
+        <div class="architix">
           <img src="assets/icons/icon.jpg" alt="" />
-          <a href="https://www.facebook.com/randy.juanjr" target="_blank"
-            ><img src="assets/icons/facebook.png" alt="Facebook Icon"
-          /></a>
-          <a href="https://www.facebook.com/randy.juanjr" target="_blank">
-            <img src="assets/icons/instagram.png" alt="Instagram Icon" />
-          </a>
-          <a href="https://www.facebook.com/randy.juanjr" target="_blank">
-            <img src="assets/icons/twitter.png" alt="Twitter Icon" />
-          </a>
-          <!-- <a href="https://www.facebook.com/randy.juanjr" target="_blank">
-            <img src="assets/icons/youtube.png" alt="Youtube Icon" />
-          </a> -->
+          <h5>&copy; 2025 ArchiTix</h5>
+          <h5>All right reserved.</h5>
+          <h5><a href="terms-service">Terms of service</a></h5>
+          <h5><a href="privacy">Privacy Policy</a></h5>
         </div>
-      </div>
-      <div class="row-3">
-        Architix, &copy; 2025. All right reserved.
-        <a href="terms-service">Terms of service</a>|<a href="privacy">Privacy Policy</a>
-      </div>
+      </section>
     </footer>
 
-    <script src="../../js/global.js"></script>
     <script src="../../js/sell.js"></script>
+    <script src="../../js/global.js"></script>
   </body>
 </html>

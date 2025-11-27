@@ -24,7 +24,7 @@ main {
   pointer-events: none;
 }
 
-img {
+#headline {
   width: 410px;
   align-self: center;
   margin-top: 24px;
@@ -50,7 +50,7 @@ h5 {
 
 /* SECTION CSS */
 
-section {
+main section {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -203,6 +203,7 @@ input {
   background-color: rgb(144, 142, 142);
   object-fit: contain;
   display: block;
+
   transition: all 0.3s ease;
 }
 

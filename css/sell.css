@@ -24,7 +24,7 @@ main {
   pointer-events: none;
 }
 
-img {
+main img {
   width: 410px;
   align-self: center;
   margin-top: 30px;
@@ -43,7 +43,7 @@ h2 {
   text-align: center;
 }
 
-section {
+main section {
   display: flex;
   flex-direction: column;
   align-items: center;

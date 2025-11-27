@@ -1,5 +1,4 @@
 main {
-  padding: 2rem;
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -24,17 +23,10 @@ main {
   pointer-events: none;
 }
 
-img {
+main img {
   width: 510px;
   align-self: center;
   margin-top: 30px;
-}
-
-article {
-  max-width: 1950px;
-  display: flex;
-  flex-direction: column;
-  gap: 30px;
 }
 
 h1 {
@@ -59,14 +51,14 @@ h2 {
   margin-bottom: 20px;
 }
 
-section div p {
+main section div p {
   width: 950px;
   font-size: 1.3rem;
   text-align: center;
   line-height: 50px;
 }
 
-section div {
+main section div {
   display: flex;
   flex-direction: column;
   gap: 50px;
