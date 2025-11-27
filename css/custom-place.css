@@ -1,5 +1,5 @@
 main {
-  height: 554px;
+  height: 630px;
   position: relative;
   padding-top: 40px;
   background-color: #1f1f1f;
@@ -16,7 +16,7 @@ main {
 .tools {
   background-color: #1f1f1f;
   width: 50px;
-  height: 554px;
+  height: 630px;
   position: absolute;
   left: 0px;
   top: 40px;
@@ -30,19 +30,50 @@ main {
   height: inherit;
 }
 
-.event-info {
+#event-info {
   background-color: #1f1f1f;
   width: 250px;
-  height: 554px;
+  height: 630px;
   position: absolute;
-  right: 0px;
+  right: 0;
   top: 40px;
+  transition: transform 0.3s ease;
+}
+
+#event-info.hide {
+  transform: translateX(100%);
+}
+
+#hide,
+#expand {
+  background: linear-gradient(90deg, white 74%, #1f1f1f 26%);
+  position: absolute;
+  top: 303px;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  transition: opacity 0.1s ease, transform 0.3s ease;
+}
+
+#hide {
+  right: 242px;
+}
+#expand {
+  right: -10px;
+}
+
+#hide.hidden,
+#expand.hidden {
+  opacity: 0;
+  transform: translateX(100%);
+  pointer-events: none;
 }
 
 .tools img {
   width: 38px;
   background-color: #1f1f1f;
-  transition: all 0.3s ease;
+  transition: all 0.2s ease;
+  cursor: pointer;
 }
 .tools img:hover {
   transform: scale(1.1);
@@ -162,6 +193,30 @@ label {
   margin-left: 40px;
 }
 
+#back {
+  position: absolute;
+  top: 8px;
+  left: 12px;
+  background-color: #1f1f1f;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  font-weight: 400;
+  font-size: 1.2rem;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+#back img {
+  width: 25px;
+  background-color: #1f1f1f;
+  transition: all 0.3s ease;
+}
+
+#back img:hover {
+  transform: scale(1.1) rotate(-10deg);
+}
 /* BUTTON CSS */
 button {
   background-color: #7ed957;
@@ -175,6 +230,7 @@ button {
   left: 50%;
   translate: -50%;
   transition: all 0.3s ease;
+  cursor: pointer;
 }
 
 button:hover {
@@ -196,11 +252,6 @@ button:active {
   justify-content: center;
   gap: 5px;
   border-radius: 20px;
-  background-color: #1f1f1f;
-}
-
-.popup-content-1 p {
-  font-size: 8px;
   background-color: #1f1f1f;
 }
 
@@ -232,6 +283,7 @@ button:active {
   border-radius: 50%;
   background-color: #1f1f1f;
   transition: all 0.3s ease;
+  cursor: pointer;
 }
 .square {
   width: 25px;
@@ -240,6 +292,7 @@ button:active {
   border-radius: 10px;
   background-color: #1f1f1f;
   transition: all 0.3s ease;
+  cursor: pointer;
 }
 
 .square:hover,

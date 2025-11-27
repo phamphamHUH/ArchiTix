@@ -7,7 +7,6 @@ document.addEventListener("mousemove", (e) => {
 });
 
 const contentsContainer = document.getElementById("contents-container");
-
 const categories = [
   {
     title: "Entertainment",

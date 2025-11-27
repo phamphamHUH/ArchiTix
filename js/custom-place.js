@@ -58,6 +58,7 @@ const seatPopupContent = document.querySelector(".popup-content-1");
 const iconsPopupContent = document.querySelector(".popup-content-3");
 const toolsContent = document.querySelector(".tools-container");
 
+// LOADS ALL ICONS AND IMAGES DYNAMICALLY
 function loadImages(array, container) {
   container.innerHTML = "";
   array.forEach((item) => {
@@ -87,7 +88,7 @@ const shapeIcon = document.getElementById("shapes");
 const shapePopup = document.getElementById("popup-2");
 const iconsIcon = document.getElementById("icons");
 const iconsPopup = document.getElementById("popup-3");
-
+// DETECTS ICON CLICK TO OPEN OR CLOSE POPUP
 seatIcon.addEventListener("click", () => {
   if (seatPopup.style.display === "flex") {
     seatPopup.style.display = "none";
@@ -95,7 +96,6 @@ seatIcon.addEventListener("click", () => {
     seatPopup.style.display = "flex";
   }
 });
-
 shapeIcon.addEventListener("click", () => {
   if (shapePopup.style.display === "flex") {
     shapePopup.style.display = "none";
@@ -103,7 +103,6 @@ shapeIcon.addEventListener("click", () => {
     shapePopup.style.display = "flex";
   }
 });
-
 iconsIcon.addEventListener("click", () => {
   if (iconsPopup.style.display === "flex") {
     iconsPopup.style.display = "none";
@@ -112,6 +111,7 @@ iconsIcon.addEventListener("click", () => {
   }
 });
 
+// DETECTS MOUSE CLICK TO CANCEL POPUP
 window.addEventListener("click", (e) => {
   if (!seatPopup.contains(e.target) && e.target !== seatIcon) {
     seatPopup.style.display = "none";
@@ -124,4 +124,31 @@ window.addEventListener("click", (e) => {
   if (!iconsPopup.contains(e.target) && e.target !== iconsIcon) {
     iconsPopup.style.display = "none";
   }
+});
+
+// DETECTS MOUSE MOVEMENT FOR MOUSE GLOW
+document.addEventListener("mousemove", (e) => {
+  const glow = document.getElementById("mouse-glow");
+  glow.style.transform = `translate(${e.clientX - 125}px, ${
+    e.clientY - 125
+  }px)`;
+});
+
+const hideIcon = document.getElementById("hide");
+const expandIcon = document.getElementById("expand");
+const infoPopup = document.getElementById("event-info");
+
+hideIcon.addEventListener("click", () => {
+  infoPopup.classList.add("hide");
+  hideIcon.classList.add("hidden");
+  expandIcon.classList.remove("hidden");
+});
+
+expandIcon.addEventListener("click", () => {
+  infoPopup.classList.remove("hide");
+  expandIcon.classList.add("hidden");
+
+  setTimeout(() => {
+    hideIcon.classList.remove("hidden");
+  }, 300);
 });
