@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ArchiTix</title>
+    <link
+      rel="shortcut icon"
+      href="../../assets/icons/icon.jpg"
+      type="image/x-icon"
+    />
+    <link rel="stylesheet" href="../../css/global.css" />
+    <link rel="stylesheet" href="../../css/edit-event.css" />
+  </head>
+  <body>
+    <header>
+      <!-- <div id="mouse-glow"></div> -->
+      <img
+        src="../../assets/images/ArchiTix.png"
+        alt="ArchiTix Logo"
+        id="logo"
+      />
+      <nav>
+        <a href="../../index.html" class="non-current">Home</a>
+        <a href="../../features.html" class="non-current">Features</a>
+        <a href="../../buy.html" class="non-current">Buy Tickets</a>
+        <a href="../../sell.html" id="current">Sell Tickets</a>
+        <a href="../../about.html" class="non-current">About</a>
+      </nav>
+      <div class="profile-wrapper">
+        <div class="profile-circle">
+          <img src="../../assets/icons/pfp.png" alt="User Profile Picture" />
+        </div>
+      </div>
+    </header>
+    <main>
+      <a href="../../sell.html" id="back"
+        ><img src="../../assets/icons/back.png" alt="Back Button"
+      /></a>
+      <section class="canvas">
+        <img id="seat-image" src="" alt="Venue Image" />
+        <section class="tools">
+          <hr />
+          <div class="tools-container"></div>
+          <div id="popup-1" class="popup-1">
+            <div class="popup-content-1"></div>
+          </div>
+          <div id="popup-2" class="popup-2">
+            <div class="popup-content-2">
+              <div class="circle"></div>
+              <div class="square"></div>
+            </div>
+          </div>
+          <div id="popup-3" class="popup-3">
+            <div class="popup-content-3"></div>
+          </div>
+        </section>
+        <img src="../../assets/icons/left.png" alt="Expand icon" id="expand" />
+        <img src="../../assets/icons/right.png" alt="Hide icon" id="hide" />
+        <section class="event-info" id="event-info">
+          <hr />
+          <div class="category">
+            <h3>Category</h3>
+            <select name="category-drop" id="category-dd">
+              <option value="None">None</option>
+              <option value="VVIP">VVIP</option>
+              <option value="VIP">VIP</option>
+              <option value="PATRON">PATRON</option>
+              <option value="LOWER BOX">LOWER BOX</option>
+              <option value="UPPER BOX">UPPER BOX</option>
+              <option value="BALCONY">BALCONY</option>
+              <option value="GENERAL ADMISSION">GENERAL ADMISSION</option>
+              <option value="BLEACHERS">BLEACHERS</option>
+              <option value="SRO">SRO</option>
+              <option value="LUXURY BOX">LUXURY BOX</option>
+            </select>
+          </div>
+          <hr />
+          <div class="seat-label">
+            <h3>Seat Label</h3>
+            <div class="content-wrapper">
+              <div class="content">
+                <label for="number"> Number </label>
+                <input type="text" class="labels" id="number" name="number" />
+              </div>
+              <div class="content">
+                <label for="desc"> Description </label>
+                <input type="text" class="labels" id="desc" name="desc" />
+              </div>
+              <div class="content">
+                <label for="Price"> Price </label>
+                <input type="text" class="labels" id="price" name="price" />
+              </div>
+            </div>
+          </div>
+          <hr />
+          <div class="seat-design">
+            <h3>Seat Design</h3>
+            <div class="color-wrapper">
+              <div class="colors">
+                <label for="reserved"> Reserved Color </label>
+                <input type="color" id="reserved" />
+              </div>
+              <div class="colors">
+                <label for="vacant"> Vacant Color </label>
+                <input type="color" id="vacant" />
+              </div>
+            </div>
+          </div>
+          <hr />
+          <button>Publish Event</button>
+        </section>
+      </section>
+    </main>
+    <script src="../../js/edit-event.js"></script>
+  </body>
+</html>
