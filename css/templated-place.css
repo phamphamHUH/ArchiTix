@@ -1,0 +1,139 @@
+main {
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 100px;
+  position: relative;
+}
+
+/* HEADER GLOW EFFECT */
+#glow {
+  position: absolute;
+  top: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 200px;
+  height: 50px;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(255, 255, 255, 0.9) 10%,
+    rgba(255, 255, 255, 0.5) 40%,
+    rgba(0, 0, 0, 0) 70%
+  );
+  filter: blur(25px);
+  pointer-events: none;
+}
+
+#headline {
+  width: 410px;
+  align-self: center;
+  margin-top: 24px;
+}
+
+/* HEADINGS' STYLES */
+h2 {
+  font-size: 2.5rem;
+  font-weight: 600;
+  margin-left: 20px;
+}
+
+h3 {
+  font-size: 2rem;
+  font-weight: 500;
+}
+
+h5 {
+  font-size: 1rem;
+  font-weight: 400;
+  color: rgb(144, 142, 142);
+}
+
+/* SECTION CSS */
+
+main section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+}
+
+/* FILTER AND SEARCH FEATURE STYLES */
+
+.filter-wrapper {
+  border: white solid;
+  border-width: 1px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2px 20px 2px 20px;
+}
+
+.filters {
+  width: 1450px;
+  display: flex;
+  justify-content: space-between;
+}
+
+select {
+  background-color: black;
+  color: rgb(90, 89, 89);
+  padding: 5px;
+  border: none;
+}
+
+.filters img {
+  width: 25px;
+  cursor: pointer;
+  margin-top: 5px;
+}
+
+.search-wrapper {
+  border: white solid;
+  border-width: 1px;
+  gap: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2px 10px 2px 5px;
+}
+
+input {
+  background-color: black;
+  border: none;
+  padding: 5px;
+  width: 400px;
+  height: 40px;
+  text-align: center;
+}
+
+.search-wrapper span {
+  background-color: black;
+  color: rgb(90, 89, 89);
+}
+
+.search-wrapper img {
+  margin-top: 10px;
+}
+/* EVENT STYLES */
+.events-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: start;
+  padding: 20px;
+  gap: 60px;
+}
+
+.event-places {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px 200px;
+}
+
+.event-places .event {
+  display: flex;
+  gap: 50px;
+  align-items: center;
+  justify-content: center;
+}

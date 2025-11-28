@@ -10,7 +10,7 @@
       type="image/x-icon"
     />
     <link rel="stylesheet" href="../../css/global.css" />
-    <link rel="stylesheet" href="../../css/buy.css" />
+    <link rel="stylesheet" href="../../css/templated-place.css" />
   </head>
   <body>
     <header>
@@ -23,8 +23,8 @@
       <nav>
         <a href="../../index.html" class="non-current">Home</a>
         <a href="../../features.html" class="non-current">Features</a>
-        <a href="../../buy.html" id="current">Buy Tickets</a>
-        <a href="../../sell.html" class="non-current">Sell Tickets</a>
+        <a href="../../buy.html" class="non-current">Buy Tickets</a>
+        <a href="../../sell.html" id="current">Sell Tickets</a>
         <a href="../../about.html" class="non-current">About</a>
       </nav>
       <div class="profile-wrapper">
@@ -55,21 +55,19 @@
             </select>
           </div>
           <div class="search-wrapper">
-            <input type="text" placeholder="Search Event" id="search-input" />
+            <input
+              type="text"
+              placeholder="Search Event's Place"
+              id="search-input"
+            />
             <span class="search-icon"
               ><img src="../../assets/icons/search.png" alt=""
             /></span>
           </div>
         </div>
         <div class="events-wrapper">
-          <div class="showing">
-            <h2>Now Showing</h2>
-            <div id="events-showing"></div>
-          </div>
-          <div class="upcoming">
-            <h2>Upcoming</h2>
-            <div id="events-upcoming"></div>
-          </div>
+          <h2>Event Places</h2>
+          <div class="event-places" id="event-places"></div>
         </div>
       </section>
     </main>
@@ -126,6 +124,6 @@
     </footer>
 
     <script src="../../js/global.js"></script>
-    <script src="../../js/buy.js"></script>
+    <script src="../../js/templated-place.js"></script>
   </body>
 </html>
