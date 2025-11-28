@@ -140,3 +140,13 @@ socmed.forEach((socials) => {
   a.appendChild(img);
   socmedContainer.appendChild(a);
 });
+
+const hamburger = document.getElementById("hamburger");
+const nav = document.querySelector("nav");
+
+nav.classList.add("mobile-hidden");
+
+hamburger.addEventListener("click", () => {
+  hamburger.classList.toggle("active");
+  nav.classList.toggle("show");
+});
