@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ArchiTix</title>
+    <link
+      rel="shortcut icon"
+      href="../../assets/icons/icon.jpg"
+      type="image/x-icon"
+    />
+    <link rel="stylesheet" href="../../css/global.css" />
+    <link rel="stylesheet" href="../../css/buy.css" />
+  </head>
+  <body>
+    <header>
+      <div id="mouse-glow"></div>
+      <img
+        src="../../assets/images/ArchiTix.png"
+        alt="ArchiTix Logo"
+        id="logo"
+      />
+      <nav>
+        <a href="../../index.html" class="non-current">Home</a>
+        <a href="../../features.html" class="non-current">Features</a>
+        <a href="../../buy.html" id="current">Buy Tickets</a>
+        <a href="../../sell.html" class="non-current">Sell Tickets</a>
+        <a href="../../about.html" class="non-current">About</a>
+      </nav>
+      <div class="profile-wrapper">
+        <div class="profile-circle">
+          <img src="../../assets/icons/pfp.png" alt="User Profile Picture" />
+        </div>
+      </div>
+    </header>
+    <main>
+      <div id="glow"></div>
+      <img
+        src="../../assets/images/BuyTickets.png"
+        alt="But Ticket Header"
+        id="headline"
+      />
+      <section>
+        <div class="filters">
+          <div class="filter-wrapper">
+            <span class="filter-icon"
+              ><img src="../../assets/icons/filter.png" alt=""
+            /></span>
+            <select name="filter" id="event-filter">
+              <option value="">No Filter</option>
+              <option value="Price - Low to High">Price - Low to High</option>
+              <option value="Price - High to Low">Price - High to Low</option>
+              <option value="Newest First">Newest First</option>
+              <option value="Oldest First">Oldest First</option>
+            </select>
+          </div>
+          <div class="search-wrapper">
+            <input type="text" placeholder="Search Event" id="search-input" />
+            <span class="search-icon"
+              ><img src="../../assets/icons/search.png" alt=""
+            /></span>
+          </div>
+        </div>
+        <div class="events-wrapper">
+          <div class="showing">
+            <h2>Now Showing</h2>
+            <div id="events-showing"></div>
+          </div>
+          <div class="upcoming">
+            <h2>Upcoming</h2>
+            <div id="events-upcoming"></div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <hr />
+    <!-- FOOTER TAG THAT HAS SOCMED ICONS -->
+    <footer>
+      <section class="popular-events">
+        <h4>Popular Categories</h4>
+        <div class="contents" id="contents-container"></div>
+      </section>
+
+      <section class="row-2">
+        <div class="about">
+          <h4>Get to Know Us</h4>
+          <div class="contents">
+            <a href="../../features.html"><h5>What we do?</h5></a>
+            <a href="../../about.html"><h5>Who we are?</h5></a>
+            <a href="../../about.html#missionVision"
+              ><h5>Our Mission & Vision</h5></a
+            >
+            <a href="#"><h5>Help</h5></a>
+          </div>
+        </div>
+
+        <div class="customer-support">
+          <h4>Become a User</h4>
+          <div class="contents">
+            <a href="../../sell.html"><h5>Be an Organizer</h5></a>
+            <a href="../../buy.html"><h5>Be a Customer</h5></a>
+            <a href="../../sell.html#custom-event"
+              ><h5>Create Custom Events</h5></a
+            >
+            <a href="../../sell.html#templated-event"
+              ><h5>Choose the Best Place</h5></a
+            >
+          </div>
+        </div>
+
+        <div class="connect">
+          <h1>Connect with Us</h1>
+          <div class="socmed" id="socmed-container"></div>
+        </div>
+      </section>
+
+      <section class="end-part">
+        <div class="architix">
+          <img src="assets/icons/icon.jpg" alt="" />
+          <h5>&copy; 2025 ArchiTix</h5>
+          <h5>All right reserved.</h5>
+          <h5><a href="terms-service">Terms of service</a></h5>
+          <h5><a href="privacy">Privacy Policy</a></h5>
+        </div>
+      </section>
+    </footer>
+
+    <script src="../../js/global.js"></script>
+    <script src="../../js/buy.js"></script>
+  </body>
+</html>
