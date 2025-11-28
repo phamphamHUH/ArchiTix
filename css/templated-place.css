@@ -38,7 +38,7 @@ h2 {
 }
 
 h3 {
-  font-size: 2rem;
+  font-size: 1.5rem;
   font-weight: 500;
 }
 
@@ -128,7 +128,7 @@ input {
 .event-places {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 20px 200px;
+  gap: 50px 120px;
 }
 
 .event-places .event {
@@ -136,4 +136,16 @@ input {
   gap: 50px;
   align-items: center;
   justify-content: center;
+}
+
+.event-places img {
+  width: 300px;
+}
+
+.eventDetails {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: center;
+  gap: 5px;
 }
