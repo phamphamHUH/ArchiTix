@@ -27,6 +27,7 @@ main {
 main img {
   width: 410px;
   align-self: center;
+  margin-top: 30px;
 }
 
 h1 {
@@ -249,6 +250,143 @@ a {
 }
 .proceedBtn.disabled:hover {
   filter: none;
+}
+.profile-modal {
+  position: relative;
+  width: calc(100vw - 650px);
+  border: solid;
+  border-radius: 30px;
+  padding: 20px;
+  display: none;
+}
+.create {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: center;
+  padding: 20px;
+  gap: 2px;
+}
+
+form {
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  gap: 10px;
+}
+
+form input {
+  width: 320px;
+  border: solid white;
+  border-width: 1px;
+  padding: 8px 10px 8px 10px;
+  text-align: center;
+}
+.personal-info input {
+  width: 140px;
+}
+
+.personal-info {
+  display: flex;
+  align-items: center;
+  gap: 19px;
+}
+
+.terms {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1px;
+}
+
+#create {
+  width: 100%;
+  font-size: 1rem;
+  height: 20px;
+  color: black;
+  background-color: white;
+  border-radius: 5px;
+  margin-top: 10px;
+}
+
+.buttons {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.buttons button {
+  font-size: 1rem;
+  width: 160px;
+  height: 20px;
+  border-radius: 5px;
+  margin-top: 0;
+}
+
+.terms input {
+  width: 30px;
+  height: 19.2px;
+}
+/* PROFILE MODAL */
+.profile-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.closeProfile-btn {
+  position: absolute;
+}
+
+.divider {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  margin: 10px 0;
+}
+
+.divider::before,
+.divider::after {
+  content: "";
+  flex: 1;
+  border-bottom: 1px solid #888; /* line color */
+}
+
+.divider:not(:empty)::before {
+  margin-right: 10px;
+}
+
+.divider:not(:empty)::after {
+  margin-left: 10px;
+}
+
+.divider span {
+  color: #888; /* text color */
+  font-size: 14px;
+}
+
+.closeProfile-btn {
+  width: 20px;
+  height: 20px;
+  border: none;
+  background-color: #0c0c0c;
+  color: #404040;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 10px;
+  right: 30px;
+}
+
+.profile-content img {
+  width: 480px;
+  margin: 0;
+  align-self: center;
+  justify-self: center;
 }
 
 /* TABLETS (≤1024px) */
