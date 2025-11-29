@@ -17,24 +17,62 @@ premadeImage.addEventListener("mouseleave", () => {
   premadeMessage.textContent = "";
 });
 
-const dateAvailability = Array.from({ length: 31 }, (_, i) => ({
-  date: i + 1,
-  availability: Math.random() < 0.7,
-}));
+function dateAvailability(length) {
+  return Array.from({ length }, (_, i) => ({
+    date: i + 1,
+    availability: Math.random() < 0.7,
+  }));
+}
 
 const months = [
-  "January",
-  "February",
-  "March",
-  "April",
-  "May",
-  "June",
-  "July",
-  "August",
-  "September",
-  "October",
-  "November",
-  "December",
+  {
+    month: "January",
+    length: 31,
+  },
+  {
+    month: "February",
+    length: 28,
+  },
+  {
+    month: "March",
+    length: 31,
+  },
+  {
+    month: "April",
+    length: 30,
+  },
+  {
+    month: "May",
+    length: 31,
+  },
+  {
+    month: "June",
+    length: 30,
+  },
+  {
+    month: "July",
+    length: 31,
+  },
+  {
+    month: "August",
+    length: 31,
+  },
+  {
+    month: "September",
+    length: 30,
+  },
+  {
+    month: "October",
+    length: 31,
+  },
+  {
+    month: "November",
+    length: 30,
+  },
+  {
+    month: "December",
+    length: 31,
+  },
 ];
 
 const modal = document.getElementById("popup-modal");
@@ -72,8 +110,8 @@ window.addEventListener("click", (e) => {
 });
 
 function loadDates() {
-  monthName.textContent = months[currentMonth];
-  const dates = dateAvailability;
+  monthName.textContent = months[currentMonth].month;
+  const dates = dateAvailability(months[currentMonth].length);
   datesContainer.innerHTML = "";
   proceedBtn.classList.add("disabled");
   dates.forEach((date) => {
@@ -122,3 +160,4 @@ proceedBtn.addEventListener("click", () => {
     window.location.href = currentRedirect;
   }
 });
+

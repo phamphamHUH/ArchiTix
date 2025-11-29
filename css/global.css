@@ -490,7 +490,7 @@ nav .non-current:hover {
   height: 100%;
   object-fit: cover;
   border-radius: 50%;
-  background-color: var(--noncurrent-hover-color);
+  background-color: white;
 }
 
 .profile-wrapper span {
@@ -529,8 +529,8 @@ main {
 footer {
   display: flex;
   flex-direction: column;
-  gap: 70px;
-  padding: 50px 150px 30px 150px;
+  gap: 60px;
+  padding: 50px 150px 10px 150px;
 }
 
 footer section {
@@ -566,6 +566,12 @@ footer section {
   display: flex;
   flex-direction: column;
   gap: 10px;
+}
+
+.end-part {
+  display: flex;
+  justify-content: center;
+  align-items: end;
 }
 
 .architix {
