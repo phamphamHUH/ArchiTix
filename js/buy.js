@@ -3,127 +3,39 @@ const searchInput = document.getElementById("search-input");
 const searchIcon = document.querySelector(".search-icon");
 const filterInput = document.getElementById("event-filter");
 const filterIcon = document.querySelector(".filter-icon");
-
-searchIcon.addEventListener("click", () => {
-  searchInput.focus();
-});
-
-filterIcon.addEventListener("click", () => {
-  filterInput.focus();
-});
-
-const events = [
-  {
-    name: "Twice",
-    place: "Cebu",
-    price: "₱1200 - ₱5600",
-    img: "assets/images/twice.jpg",
-    date: "January 10, 2026",
-    status: "upcoming",
-  },
-  {
-    name: "Now You See Me",
-    place: "Manila",
-    price: "₱1200 - ₱5000",
-    img: "assets/images/seeya.jpg",
-    date: "March 11, 2026",
-    status: "showing",
-  },
-  {
-    name: "Tyler, The Creator",
-    place: "Araneta",
-    price: "₱1200 - ₱5000",
-    img: "assets/images/chroma.jpg",
-    date: "February 27, 2026",
-    status: "upcoming",
-  },
-  {
-    name: "New Jeans",
-    place: "Araneta",
-    price: "₱1200 - ₱5000",
-    img: "assets/images/njz.png",
-    date: "January 06, 2026",
-    status: "showing",
-  },
-  {
-    name: "Fantastic 4",
-    place: "SM MOA Arena",
-    price: "₱1500 - ₱7000",
-    img: "assets/images/Fantastic4.png",
-    date: "March 20, 2026",
-    status: "showing",
-  },
-  {
-    name: "Superman",
-    place: "Araneta",
-    price: "₱2000 - ₱8000",
-    img: "assets/images/superman.jpg",
-    date: "April 05, 2026",
-    status: "upcoming",
-  },
-  {
-    name: "Coldplay",
-    place: "Cebu",
-    price: "₱1800 - ₱7500",
-    img: "assets/images/coldplay.jpg",
-    date: "May 12, 2026",
-    status: "showing",
-  },
-  {
-    name: "Imagine Dragons",
-    place: "Manila",
-    price: "₱1500 - ₱6000",
-    img: "assets/images/imagine-dragons.jpg",
-    date: "June 02, 2026",
-    status: "upcoming",
-  },
-  {
-    name: "BLACKPINK World Tour",
-    place: "Araneta",
-    price: "₱2000 - ₱9000",
-    img: "assets/images/blackpink.jpg",
-    date: "July 18, 2026",
-    status: "showing",
-  },
-  {
-    name: "Maroon 5",
-    place: "Cebu",
-    price: "₱1200 - ₱5500",
-    img: "assets/images/maroon-5.jpg",
-    date: "August 08, 2026",
-    status: "upcoming",
-  },
-  {
-    name: "Tyler, The Creator",
-    place: "SM MOA Arena",
-    price: "₱1200 - ₱5000",
-    img: "assets/images/chroma.jpg",
-    date: "January 06, 2026",
-    status: "showing",
-  },
-  {
-    name: "New Jeans",
-    place: "SM MOA Arena",
-    price: "₱1200 - ₱5000",
-    img: "assets/images/njz.png",
-    date: "March 06, 2026",
-    status: "upcoming",
-  },
-];
-
+// CONTAINERS
 const showingContainer = document.getElementById("events-showing");
 const upcomingContainer = document.getElementById("events-upcoming");
+// FILTER AND SEARCH VALUE
+const filterValue = document.getElementById("event-filter");
+const searchValue = document.getElementById("search-input");
+// DATA VARIABLE
+let eventsList;
 
-events.forEach((e) => {
+async function fetchEvents() {
+  const res = await fetch(
+    "http://localhost/ArchiTIx/server/api/events/getEvents.php"
+  );
+
+  if (!res.ok) {
+    throw new Error("Failed to fetch events");
+  }
+
+  return await res.json();
+}
+
+function createCard(event) {
   const card = document.createElement("div");
   card.classList.add("event");
   card.innerHTML = `
-    <img src="${e.img}" alt="Event Image" class="image"/>
+    <img src="${event.image}" alt="Event Image" class="image"/>
     <div class="eventDetails">
-      <h3>${e.name}</h3>
-      <h5>Event's Place: ${e.place}</h5>
-      <h5>Price: ${e.price}</h5>
-      <h5>Date: ${e.date}</h5>
+      <h3>${event.name}</h3>
+      <h5>Place: ${event.venue_name}</h5>
+      <h5>Price: ₱${Number(event.min_price).toLocaleString()} - ₱${Number(
+    event.max_price
+  ).toLocaleString()}</h5>
+      <h5>Date: ${event.event_date}</h5>
         <a href="../../event-details.html">
           <button>
             <div><img src="../../assets/icons/seat.png" alt="Seat Icon" /></div>
@@ -133,14 +45,32 @@ events.forEach((e) => {
     </div>
     
   `;
-  if (e.status === "upcoming") {
-    upcomingContainer.appendChild(card);
-  } else {
-    showingContainer.appendChild(card);
-  }
-});
+  return card;
+}
 
-const filterValue = document.getElementById("event-filter");
+async function loadEvents() {
+  try {
+    eventsList = await fetchEvents();
+
+    showingContainer.innerHTML = "";
+    upcomingContainer.innerHTML = "";
+    eventsList.events.forEach((event) => {
+      if (event.status === "upcoming") {
+        showingContainer.appendChild(createCard(event));
+      } else {
+        upcomingContainer.appendChild(createCard(event));
+      }
+    });
+  } catch (error) {
+    console.error("Error:", error);
+  }
+}
+
+loadEvents();
+
+filterIcon.addEventListener("click", () => {
+  filterInput.focus();
+});
 
 filterValue.addEventListener("change", () => {
   filter(filterValue.value);
@@ -150,80 +80,60 @@ function filter(filterCriteria) {
   showingContainer.innerHTML = "";
   upcomingContainer.innerHTML = "";
 
-  let sortedEvents = [...events];
+  let sortedEvents = [...eventsList.events];
 
   switch (filterCriteria) {
-    case "Price - Low to High":
+    case "Min Price - Low to High":
       sortedEvents.sort((a, b) => {
-        const aMin = parseInt(
-          a.price
-            .replace(/[^0-9]/g, "")
-            .split("")
-            .slice(0, 4)
-            .join("")
-        );
-        const bMin = parseInt(
-          b.price
-            .replace(/[^0-9]/g, "")
-            .split("")
-            .slice(0, 4)
-            .join("")
-        );
+        const aMin = a.min_price;
+        const bMin = b.min_price;
         return aMin - bMin;
       });
       break;
-    case "Price - High to Low":
+    case "Min Price - High to Low":
       sortedEvents.sort((a, b) => {
-        const aMin = parseInt(
-          a.price
-            .replace(/[^0-9]/g, "")
-            .split("")
-            .slice(0, 4)
-            .join("")
-        );
-        const bMin = parseInt(
-          b.price
-            .replace(/[^0-9]/g, "")
-            .split("")
-            .slice(0, 4)
-            .join("")
-        );
+        const aMin = a.min_price;
+        const bMin = b.min_price;
         return bMin - aMin;
       });
       break;
+    case "Max Price - Low to High":
+      sortedEvents.sort((a, b) => {
+        const aMax = a.max_price;
+        const bMax = b.max_price;
+        return aMax - bMax;
+      });
+      break;
+    case "Max Price - High to Low":
+      sortedEvents.sort((a, b) => {
+        const aMax = a.max_price;
+        const bMax = b.max_price;
+        return bMax - aMax;
+      });
+      break;
     case "Newest First":
-      sortedEvents.sort((a, b) => new Date(b.date) - new Date(a.date));
+      sortedEvents.sort(
+        (a, b) => new Date(b.event_date) - new Date(a.event_date)
+      );
 
       break;
     case "Oldest First":
-      sortedEvents.sort((a, b) => new Date(a.date) - new Date(b.date));
+      sortedEvents.sort(
+        (a, b) => new Date(a.event_date) - new Date(b.event_date)
+      );
       break;
   }
 
-  sortedEvents.forEach((e) => {
-    const card = document.createElement("div");
-    card.classList.add("event");
-    card.innerHTML = `
-      <img src="${e.img}" alt="Event Image" class="image"/>
-      <div class="eventDetails">
-        <h3>${e.name}</h3>
-        <h5>Event's Place: ${e.place}</h5>
-        <h5>Price: ${e.price}</h5>
-        <h5>Date: ${e.date}</h5>
-        <a href="../../event-details.html">
-          <button>
-            <div><img src="../../assets/icons/seat.png" alt="Seat Icon" /></div>
-            View Seats
-          </button>
-        </a>
-      </div>
-    `;
-    if (e.status === "upcoming") upcomingContainer.appendChild(card);
-    else showingContainer.appendChild(card);
+  sortedEvents.forEach((event) => {
+    if (event.status === "upcoming")
+      upcomingContainer.appendChild(createCard(event));
+    else showingContainer.appendChild(createCard(event));
   });
 }
 
-const searchValue = document.getElementById("search-input");
+searchIcon.addEventListener("click", () => {
+  searchInput.focus();
+});
 
 searchValue.addEventListener("input", () => {
   search(searchValue.value);
@@ -233,31 +143,14 @@ function search(searchValue) {
   showingContainer.innerHTML = "";
   upcomingContainer.innerHTML = "";
 
-  const filteredEvents = events.filter(
-    (e) =>
-      e.name.toLowerCase().includes(searchValue.toLowerCase()) ||
-      e.place.toLowerCase().includes(searchValue.toLowerCase())
+  const filteredEvents = eventsList.events.filter(
+    (event) =>
+      event.name.toLowerCase().includes(searchValue.toLowerCase()) ||
+      event.venue_name.toLowerCase().includes(searchValue.toLowerCase())
   );
 
   filteredEvents.forEach((e) => {
-    const card = document.createElement("div");
-    card.classList.add("event");
-    card.innerHTML = `
-      <img src="${e.img}" alt="Event Image" class="image"/>
-      <div class="eventDetails">
-        <h3>${e.name}</h3>
-        <h5>Event's Place: ${e.place}</h5>
-        <h5>Price: ${e.price}</h5>
-        <h5>Date: ${e.date}</h5>
-        <a href="../../event-details.html">
-          <button>
-            <div><img src="../../assets/icons/seat.png" alt="Seat Icon" /></div>
-            View Seats
-          </button>
-        </a>
-      </div>
-    `;
-    if (e.status === "upcoming") upcomingContainer.appendChild(card);
-    else showingContainer.appendChild(card);
+    if (e.status === "upcoming") upcomingContainer.appendChild(createCard(e));
+    else showingContainer.appendChild(createCard(e));
   });
 }

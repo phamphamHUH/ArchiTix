@@ -8,50 +8,51 @@ heroTitle.addEventListener("mouseleave", () => {
   heroTitle.textContent = "The Easiest Way to Fill Every Seat.";
 });
 
-const events = [
-  {
-    name: "Twice",
-    place: "Cebu",
-    price: "₱1200 - ₱5600",
-    img: "assets/images/twice.jpg",
-    date: "January 10, 2026",
-  },
-  {
-    name: "Tyler, The Creator",
-    place: "Araneta",
-    price: "₱1200 - ₱5000",
-    img: "assets/images/chroma.jpg",
-    date: "February 27, 2026",
-  },
-  {
-    name: "Now You See Me, Now You Don't",
-    place: "Manila",
-    price: "₱1200 - ₱5000",
-    img: "assets/images/seeya.jpg",
-    date: "March 11, 2026",
-  },
-  {
-    name: "New Jeans",
-    place: "Araneta",
-    price: "₱1200 - ₱5000",
-    img: "assets/images/njz.png",
-    date: "January 06, 2026",
-  },
-];
+async function fetchTrendingEvents() {
+  const res = await fetch(
+    "http://localhost/ArchiTIx/server/api/events/getEvents.php"
+  );
 
-const container = document.getElementById("events");
+  if (!res.ok) {
+    throw new Error("Failed to fetch events");
+  }
+  return await res.json();
+}
 
-events.forEach((e) => {
+function createCard(event) {
   const card = document.createElement("div");
   card.classList.add("event");
   card.innerHTML = `
-    <img src="${e.img}" alt="Event Image" />
+    <img src="${event.image}" alt="Event Image" />
     <div class="eventDetails">
-      <h3>${e.name}</h3>
-      <h5>Event's Place: ${e.place}</h5>
-      <h5>Price: ${e.price}</h5>
-      <h5>Date: ${e.date}</h5>
+      <h3>${event.name}</h3>
+      <h5>Place: ${event.venue_name}</h5>
+      <h5>Price: ₱${Number(event.min_price).toLocaleString()} - ₱${Number(
+    event.max_price
+  ).toLocaleString()}</h5>
+      <h5>Date: ${event.event_date}</h5>
     </div>
   `;
-  container.appendChild(card);
-});
+
+  return card;
+}
+
+async function loadEvents() {
+  try {
+    const data = await fetchTrendingEvents();
+    console.log(data.events);
+    const container = document.getElementById("events");
+
+    container.innerHTML = "";
+
+    data.events.forEach((event) => {
+      if (event.trending) {
+        container.appendChild(createCard(event));
+      }
+    });
+  } catch (error) {
+    console.error("Error:", error);
+  }
+}
+
+loadEvents();

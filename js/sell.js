@@ -1,15 +1,14 @@
+// HOVER MESSAGE EFFECT
 const customMessage = document.getElementById("custom-message");
 const customImage = document.getElementById("custom");
 const premadeMessage = document.getElementById("premade-message");
 const premadeImage = document.getElementById("premade");
-
 customImage.addEventListener("mouseenter", () => {
   customMessage.textContent = "CREATE YOUR OWN STAGE";
 });
 customImage.addEventListener("mouseleave", () => {
   customMessage.textContent = "";
 });
-
 premadeImage.addEventListener("mouseenter", () => {
   premadeMessage.textContent = "CHOOSE THE BEST STAGE";
 });
@@ -17,80 +16,53 @@ premadeImage.addEventListener("mouseleave", () => {
   premadeMessage.textContent = "";
 });
 
+// CALENDAR POPUP
 function dateAvailability(length) {
   return Array.from({ length }, (_, i) => ({
     date: i + 1,
     availability: Math.random() < 0.7,
   }));
 }
-
 const months = [
-  {
-    month: "January",
-    length: 31,
-  },
-  {
-    month: "February",
-    length: 28,
-  },
-  {
-    month: "March",
-    length: 31,
-  },
-  {
-    month: "April",
-    length: 30,
-  },
-  {
-    month: "May",
-    length: 31,
-  },
-  {
-    month: "June",
-    length: 30,
-  },
-  {
-    month: "July",
-    length: 31,
-  },
-  {
-    month: "August",
-    length: 31,
-  },
-  {
-    month: "September",
-    length: 30,
-  },
-  {
-    month: "October",
-    length: 31,
-  },
-  {
-    month: "November",
-    length: 30,
-  },
-  {
-    month: "December",
-    length: 31,
-  },
+  { month: "January", length: 31 },
+  { month: "February", length: 28 },
+  { month: "March", length: 31 },
+  { month: "April", length: 30 },
+  { month: "May", length: 31 },
+  { month: "June", length: 30 },
+  { month: "July", length: 31 },
+  { month: "August", length: 31 },
+  { month: "September", length: 30 },
+  { month: "October", length: 31 },
+  { month: "November", length: 30 },
+  { month: "December", length: 31 },
 ];
-
+// DATE POPUP
 const modal = document.getElementById("popup-modal");
 const openButtons = document.querySelectorAll(".openModalBtn");
-const closeBtn = document.getElementById("closeModal");
+const closeDateBtn = document.getElementById("closeModal");
 const monthName = document.getElementById("month-name");
 const datesContainer = document.querySelector(".dates");
 const prevBtn = document.getElementById("prevBtn");
 const nextBtn = document.getElementById("nextBtn");
 const proceedBtn = document.querySelector(".proceedBtn");
+// REGISTER/LOGIN POPUP
+const registerModal = document.getElementById("profile-overlay-register");
+const loginModal = document.getElementById("profile-overlay-login");
+const closeProfileBtn = document.getElementById("closeProfileBtn");
+const registerToLogin = document.getElementById("open-login");
+const loginToRegister = document.getElementById("open-register");
 
 let currentMonth = 10;
-
+const isLoggedIn = false;
 openButtons.forEach((btn) => {
   btn.addEventListener("click", () => {
+    if (!isLoggedIn) {
+      loginModal.style.display = "block";
+      return;
+    }
     modal.style.display = "flex";
     document.body.style.overflow = "hidden";
-
     if (btn.id === "customBtn") {
       currentRedirect = "/customize-place.html";
     } else if (btn.id === "templatedBtn") {
@@ -100,12 +72,27 @@ openButtons.forEach((btn) => {
     loadDates();
   });
 });
-closeBtn.addEventListener("click", () => {
-  modal.style.display = "none";
-  document.body.style.overflow = "auto";
-});
+
+// CLOSE BUTTON FUNCTIONALITY
+attachClose("closeDateModal", "popup-modal");
+attachClose("closeProfileRegister", "profile-overlay-register");
+attachClose("closeProfileLogin", "profile-overlay-login");
+function attachClose(btnId, modalId) {
+  const btn = document.getElementById(btnId);
+  const modal = document.getElementById(modalId);
+
+  if (!btn || !modal) return;
+
+  btn.addEventListener("click", () => {
+    modal.style.display = "none";
+    document.body.style.overflow = "auto";
+  });
+}
+// CLOSES MODAL AFTER OUTSIDE MODAL CLICK FUNCTIONALITY
 window.addEventListener("click", (e) => {
   if (e.target === modal) modal.style.display = "none";
+  if (e.target === registerModal) registerModal.style.display = "none";
+  if (e.target === loginModal) loginModal.style.display = "none";
   document.body.style.overflow = "auto";
 });
 
@@ -139,6 +126,7 @@ function loadDates() {
   });
 }
 
+// DATE PICKER BUTTONS FUNCTIONALITY
 nextBtn.addEventListener("click", () => {
   if (currentMonth < months.length - 1) {
     currentMonth++;
@@ -160,4 +148,3 @@ proceedBtn.addEventListener("click", () => {
     window.location.href = currentRedirect;
   }
 });
-

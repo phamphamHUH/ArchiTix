@@ -88,7 +88,7 @@
       </section>
       <div id="popup-modal" class="popup-modal">
         <div id="modal-content" class="modal-content">
-          <span id="closeModal" class="close-btn">&times;</span>
+          <span id="closeDateModal" class="close-btn">&times;</span>
           <h2>Pick a Date</h2>
           <div class="date-details">
             <h3 id="month-name"></h3>
@@ -102,37 +102,75 @@
           </div>
         </div>
       </div>
-      <div id="profile-modal" class="profile-modal">
-        <div id="profile-content" class="profile-content">
-          <button id="closeProfile-modal" class="closeProfile-btn">&lt;</button>
-          <img src="../../assets/images/ArchiTix.png" alt="" />
-          <div class="create">
-            <h2>Create Account</h2>
-            <h5>Don't have an account? <a href="">Log in</a></h5>
-            <form action="">
-              <div class="personal-info">
-                <input type="text" placeholder="First Name" />
-                <input type="text" placeholder="Last Name" />
+      <div id="profile-overlay-register" class="profile-overlay-register">
+        <div class="profile-modal">
+          <div class="profile-content">
+            <button id="closeProfileRegister" class="closeProfile-btn">
+              &lt;
+            </button>
+            <img src="../../assets/images/ArchiTix.png" alt="" />
+            <div class="create">
+              <h2>Create Account</h2>
+              <div class="redirect">
+                <h5>Already have an account?</h5>
+                <p class="text-redirect" id="open-login">Login</p>
               </div>
-              <input type="text" placeholder="Email Address" />
-              <div class="password">
-                <input type="text" placeholder="Password" />
+              <form action="">
+                <div class="personal-info">
+                  <input type="text" placeholder="First Name" />
+                  <input type="text" placeholder="Last Name" />
+                </div>
+                <input type="text" placeholder="Email Address" />
+                <div class="password">
+                  <input type="text" placeholder="Password" />
+                </div>
+                <div class="terms">
+                  <input type="checkbox" id="agree" />
+                  <label for="agree"
+                    >I agree to the <a href="">Terms and Conditions</a></label
+                  >
+                </div>
+                <button id="create">Create Account</button>
+                <div class="divider">
+                  <span>Or register with</span>
+                </div>
+                <div class="buttons">
+                  <button id="google">Google</button
+                  ><button id apple>Apple</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="profile-overlay-login" class="profile-overlay-login">
+        <div class="profile-modal">
+          <div class="profile-content">
+            <button id="closeProfileLogin" class="closeProfile-btn">
+              &lt;
+            </button>
+            <div class="create">
+              <h2>Welcome Back</h2>
+              <div class="redirect">
+                <h5>Don't have an account?</h5>
+                <p class="text-redirect" id="open-register">Create Account</p>
               </div>
-              <div class="terms">
-                <input type="checkbox" id="agree" />
-                <label for="agree"
-                  >I agree to the <a href="">Terms and Conditions</a></label
-                >
-              </div>
-              <button id="create">Create Account</button>
-              <div class="divider">
-                <span>Or register with</span>
-              </div>
-              <div class="buttons">
-                <button id="google">Google</button
-                ><button id apple>Apple</button>
-              </div>
-            </form>
+              <form action="">
+                <input type="text" placeholder="Email Address" />
+                <div class="password">
+                  <input type="text" placeholder="Password" />
+                </div>
+                <button id="create">Login</button>
+                <div class="divider">
+                  <span>Or login with</span>
+                </div>
+                <div class="buttons">
+                  <button id="google">Google</button
+                  ><button id apple>Apple</button>
+                </div>
+              </form>
+            </div>
+            <img src="../../assets/images/ArchiTix.png" alt="" />
           </div>
         </div>
       </div>

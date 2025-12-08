@@ -121,6 +121,7 @@ input {
   display: grid;
   grid-template-columns: 1fr 1fr;
   padding: 15px;
+  gap: 0px 10px;
 }
 
 .events-wrapper .showing,
