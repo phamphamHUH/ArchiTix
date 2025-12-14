@@ -58,7 +58,7 @@ const isLoggedIn = false;
 openButtons.forEach((btn) => {
   btn.addEventListener("click", () => {
     if (!isLoggedIn) {
-      loginModal.style.display = "block";
+      registerModal.style.display = "block";
       return;
     }
     modal.style.display = "flex";
@@ -71,6 +71,17 @@ openButtons.forEach((btn) => {
 
     loadDates();
   });
+});
+
+registerToLogin.addEventListener("click", () => {
+  registerModal.style.display = "none";
+  loginModal.style.display = "flex";
+  document.body.style.overflow = "hidden";
+});
+loginToRegister.addEventListener("click", () => {
+  loginModal.style.display = "none";
+  registerModal.style.display = "flex";
+  document.body.style.overflow = "hidden";
 });
 
 // CLOSE BUTTON FUNCTIONALITY
@@ -146,5 +157,40 @@ prevBtn.addEventListener("click", () => {
 proceedBtn.addEventListener("click", () => {
   if (!proceedBtn.classList.contains("disabled") && currentRedirect) {
     window.location.href = currentRedirect;
+  }
+});
+
+document
+  .getElementById("registerForm")
+  .addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const formData = new FormData(e.target);
+    const response = await fetch("register.php", {
+      method: "POST",
+      body: formData,
+    });
+
+    const data = await response.json();
+    alert(data.message);
+  });
+
+// LOGIN
+document.getElementById("loginForm").addEventListener("submit", async (e) => {
+  e.preventDefault();
+
+  const formData = new FormData(e.target);
+
+  const response = await fetch("login.php", {
+    method: "POST",
+    body: formData,
+  });
+
+  const data = await response.json();
+
+  if (data.success) {
+    alert("Login successful");
+    // window.location.href = "dashboard.php";
+  } else {
+    alert(data.message);
   }
 });

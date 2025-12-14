@@ -115,14 +115,34 @@
                 <h5>Already have an account?</h5>
                 <p class="text-redirect" id="open-login">Login</p>
               </div>
-              <form action="">
+              <form id="registerForm">
                 <div class="personal-info">
-                  <input type="text" placeholder="First Name" />
-                  <input type="text" placeholder="Last Name" />
+                  <input
+                    type="text"
+                    placeholder="First Name"
+                    name="firstName"
+                    required
+                  />
+                  <input
+                    type="text"
+                    placeholder="Last Name"
+                    name="lastName"
+                    required
+                  />
                 </div>
-                <input type="text" placeholder="Email Address" />
+                <input
+                  type="text"
+                  placeholder="Email Address"
+                  name="email"
+                  required
+                />
                 <div class="password">
-                  <input type="text" placeholder="Password" />
+                  <input
+                    type="text"
+                    placeholder="Password"
+                    name="password"
+                    required
+                  />
                 </div>
                 <div class="terms">
                   <input type="checkbox" id="agree" />
@@ -130,7 +150,7 @@
                     >I agree to the <a href="">Terms and Conditions</a></label
                   >
                 </div>
-                <button id="create">Create Account</button>
+                <button id="create" type="submit">Create Account</button>
                 <div class="divider">
                   <span>Or register with</span>
                 </div>
