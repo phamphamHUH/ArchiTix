@@ -54,7 +54,7 @@ const registerToLogin = document.getElementById("open-login");
 const loginToRegister = document.getElementById("open-register");
 
 let currentMonth = 10;
-const isLoggedIn = false;
+let isLoggedIn = false;
 openButtons.forEach((btn) => {
   btn.addEventListener("click", () => {
     if (!isLoggedIn) {
@@ -236,13 +236,10 @@ if (loginForm) {
 
       if (result.success) {
         alert(result.success);
-        localStorage.setItem("user_id", JSON.stringify(result.user.id));
-        localStorage.setItem("email", JSON.stringify(result.user.email));
-        localStorage.setItem("role", JSON.stringify(result.user.role));
+        localStorage.setItem("token", result.payload);
         if (loginModal) loginModal.style.display = "none";
         document.body.style.overflow = "auto";
         isLoggedIn = true;
-        window.location.reload();
       } else if (result.error) {
         alert(result.error);
       } else {

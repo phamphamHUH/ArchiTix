@@ -7,7 +7,7 @@ header("Access-Control-Allow-Methods: POST, GET, OPTIONS");
 header("Access-Control-Allow-Headers: Content-Type");
 header("Content-Type: application/json");
 
-if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
+if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS' || !$_SERVER['REQUEST_METHOD'] === 'POST') {
     http_response_code(200);
     exit;
 }

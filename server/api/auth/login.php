@@ -2,6 +2,9 @@
 session_start();
 
 require_once __DIR__ . "/../../config/db.php";
+require_once __DIR__ . "/../../config/config.php";
+
+use Firebase\JWT\JWT;
 
 header("Access-Control-Allow-Origin: http://127.0.0.1:5501");
 header("Access-Control-Allow-Methods: POST, OPTIONS");
@@ -41,19 +44,23 @@ if (!password_verify($password, $user['password_hash'])) {
     exit;
 }
 
-// Store session data
-$_SESSION['user_id'] = $user['user_id'];
-$_SESSION['email']   = $email;
-$_SESSION['role']    = $user['role'];
+$payload = [
+    "exp" => time() + $_ENV["JWT_EXPIRY"],
+    "user" => [
+        "id" => $user['user_id'],
+        "email" => $email,
+        "role" => $user['role']
+    ]
+];
+
+// Encode JWT
+$jwt = JWT::encode($payload, $_ENV["JWT_SECRET"], 'HS256');
+
 
 $stmt->close();
 $conn->close();
 
 echo json_encode([
     "success" => "Login successful",
-    "user" => [
-        "id" => $user['user_id'],
-        "email" => $email,
-        "role" => $user['role']
-    ]
+    "payload" => $jwt,
 ]);
