@@ -120,43 +120,45 @@
                   <input
                     type="text"
                     placeholder="First Name"
-                    name="firstName"
+                    id="firstName"
                     required
                   />
                   <input
                     type="text"
                     placeholder="Last Name"
-                    name="lastName"
+                    id="lastName"
                     required
                   />
                 </div>
                 <input
                   type="text"
                   placeholder="Email Address"
-                  name="email"
+                  id="email"
                   required
                 />
                 <div class="password">
                   <input
-                    type="text"
+                    type="password"
                     placeholder="Password"
-                    name="password"
+                    id="password"
                     required
                   />
                 </div>
                 <div class="terms">
-                  <input type="checkbox" id="agree" />
+                  <input type="checkbox" id="agree" name="agree" />
                   <label for="agree"
                     >I agree to the <a href="">Terms and Conditions</a></label
                   >
                 </div>
-                <button id="create" type="submit">Create Account</button>
+                <button id="createAccountBtn" type="submit">
+                  Create Account
+                </button>
                 <div class="divider">
                   <span>Or register with</span>
                 </div>
                 <div class="buttons">
-                  <button id="google">Google</button
-                  ><button id apple>Apple</button>
+                  <button id="google-register" type="button">Google</button>
+                  <button id="apple-register" type="button">Apple</button>
                 </div>
               </form>
             </div>
@@ -175,18 +177,28 @@
                 <h5>Don't have an account?</h5>
                 <p class="text-redirect" id="open-register">Create Account</p>
               </div>
-              <form action="">
-                <input type="text" placeholder="Email Address" />
+              <form id="loginForm" action="">
+                <input
+                  type="email"
+                  placeholder="Email Address"
+                  id="logEmail"
+                  required
+                />
                 <div class="password">
-                  <input type="text" placeholder="Password" />
+                  <input
+                    type="password"
+                    placeholder="Password"
+                    id="logPassword"
+                    required
+                  />
                 </div>
-                <button id="create">Login</button>
+                <button id="loginBtn" type="submit">Login</button>
                 <div class="divider">
                   <span>Or login with</span>
                 </div>
                 <div class="buttons">
-                  <button id="google">Google</button
-                  ><button id apple>Apple</button>
+                  <button id="google-login" type="button">Google</button>
+                  <button id="apple-login" type="button">Apple</button>
                 </div>
               </form>
             </div>

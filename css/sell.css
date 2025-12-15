@@ -321,7 +321,16 @@ a {
 }
 
 /* Create Button Css */
-#create {
+#createAccountBtn {
+  width: 100%;
+  font-size: 1rem;
+  height: 20px;
+  color: black;
+  background-color: white;
+  border-radius: 5px;
+  margin-top: 10px;
+}
+#loginBtn {
   width: 100%;
   font-size: 1rem;
   height: 20px;

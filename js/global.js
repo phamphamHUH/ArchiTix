@@ -1,9 +1,11 @@
 // DETECTS MOUSE MOVEMENT FOR MOUSE GLOW
 document.addEventListener("mousemove", (e) => {
   const glow = document.getElementById("mouse-glow");
-  glow.style.transform = `translate(${e.clientX - 125}px, ${
-    e.clientY - 125
-  }px)`;
+  if (glow) {
+    glow.style.transform = `translate(${e.clientX - 125}px, ${
+      e.clientY - 125
+    }px)`;
+  }
 });
 
 const contentsContainer = document.getElementById("contents-container");
@@ -95,7 +97,7 @@ categories.forEach((category) => {
     wrapper.appendChild(eventName);
   });
 
-  contentsContainer.appendChild(wrapper);
+  if (contentsContainer) contentsContainer.appendChild(wrapper);
 });
 
 const socmed = [
@@ -138,15 +140,17 @@ socmed.forEach((socials) => {
   img.alt = socials.alt;
 
   a.appendChild(img);
-  socmedContainer.appendChild(a);
+  if (socmedContainer) socmedContainer.appendChild(a);
 });
 
 const hamburger = document.getElementById("hamburger");
 const nav = document.querySelector("nav");
 
-nav.classList.add("mobile-hidden");
+if (nav) nav.classList.add("mobile-hidden");
 
-hamburger.addEventListener("click", () => {
-  hamburger.classList.toggle("active");
-  nav.classList.toggle("show");
-});
+if (hamburger && nav) {
+  hamburger.addEventListener("click", () => {
+    hamburger.classList.toggle("active");
+    nav.classList.toggle("show");
+  });
+}

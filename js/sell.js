@@ -164,33 +164,93 @@ document
   .getElementById("registerForm")
   .addEventListener("submit", async (e) => {
     e.preventDefault();
-    const formData = new FormData(e.target);
-    const response = await fetch("register.php", {
-      method: "POST",
-      body: formData,
-    });
+    const agree = document.getElementById("agree");
+    if (!agree || !agree.checked) {
+      alert("You must agree to the Terms and Conditions to register.");
+      return;
+    }
+    const data = {
+      firstName: document.getElementById("firstName").value.trim(),
+      lastName: document.getElementById("lastName").value.trim(),
+      email: document.getElementById("email").value.trim(),
+      password: document.getElementById("password").value,
+    };
 
-    const data = await response.json();
-    alert(data.message);
+    try {
+      const res = await fetch(
+        "http://localhost/ArchiTIx/server/api/auth/register.php",
+        {
+          method: "POST",
+          credentials: "include",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(data),
+        }
+      );
+
+      const result = await res.json();
+
+      if (result.error) {
+        alert(result.error);
+        return;
+      }
+
+      alert("Registration successful");
+    } catch (err) {
+      console.error("Register error:", err);
+      alert("Server error");
+    }
   });
 
 // LOGIN
-document.getElementById("loginForm").addEventListener("submit", async (e) => {
-  e.preventDefault();
+const loginForm = document.getElementById("loginForm");
+if (loginForm) {
+  loginForm.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const data = {
+      email: document.getElementById("logEmail").value.trim(),
+      password: document.getElementById("logPassword").value,
+    };
+    try {
+      const res = await fetch(
+        "http://localhost/ArchiTIx/server/api/auth/login.php",
+        {
+          method: "POST",
+          credentials: "include",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(data),
+        }
+      );
 
-  const formData = new FormData(e.target);
+      let result;
+      try {
+        result = await res.json();
+      } catch (err) {
+        console.error("Invalid Server Response:", err);
+        alert("Server Error. Please try again.");
+        return;
+      }
 
-  const response = await fetch("login.php", {
-    method: "POST",
-    body: formData,
+      if (result.success) {
+        alert(result.success);
+        localStorage.setItem("user_id", JSON.stringify(result.user.id));
+        localStorage.setItem("email", JSON.stringify(result.user.email));
+        localStorage.setItem("role", JSON.stringify(result.user.role));
+        if (loginModal) loginModal.style.display = "none";
+        document.body.style.overflow = "auto";
+        isLoggedIn = true;
+        window.location.reload();
+      } else if (result.error) {
+        alert(result.error);
+      } else {
+        alert("Something went wrong. Please try again.");
+      }
+    } catch (err) {
+      console.error("Login error:", err);
+      alert("Network error. Check server and try again.");
+    }
   });
-
-  const data = await response.json();
-
-  if (data.success) {
-    alert("Login successful");
-    // window.location.href = "dashboard.php";
-  } else {
-    alert(data.message);
-  }
-});
+}
