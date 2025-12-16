@@ -154,3 +154,47 @@ if (hamburger && nav) {
     nav.classList.toggle("show");
   });
 }
+
+window.Auth = {
+  isTokenExpired(token) {
+    try {
+      const payload = JSON.parse(atob(token.split(".")[1]));
+      return payload.exp * 1000 < Date.now();
+    } catch {
+      return true;
+    }
+  },
+
+  isLoggedIn() {
+    const token = localStorage.getItem("token");
+
+    if (!token || this.isTokenExpired(token)) {
+      localStorage.removeItem("token");
+      return false;
+    }
+
+    return true;
+  },
+
+  saveToken(token) {
+    localStorage.setItem("token", token);
+  },
+
+  logout() {
+    localStorage.removeItem("token");
+    alert("You have been logged out");
+    window.location.href = "/index.html";
+  },
+};
+
+const pfp = document.getElementById("pfp");
+const loadPfp = () => {
+  if (pfp && Auth.isLoggedIn()) {
+    const token = localStorage.getItem("token");
+    const payload = JSON.parse(atob(token.split(".")[1]));
+    pfp.src = payload.user.profile_pic;
+  }
+};
+document.addEventListener("DOMContentLoaded", () => {
+  loadPfp();
+});

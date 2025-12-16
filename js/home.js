@@ -23,14 +23,14 @@ function createCard(event) {
   const card = document.createElement("div");
   card.classList.add("event");
   card.innerHTML = `
-    <img src="${event.image}" alt="Event Image" />
+    <img src="${event.event_image}" alt="Event Image" />
     <div class="eventDetails">
-      <h3>${event.name}</h3>
+      <h3>${event.event_name}</h3>
       <h5>Place: ${event.venue_name}</h5>
       <h5>Price: ₱${Number(event.min_price).toLocaleString()} - ₱${Number(
     event.max_price
   ).toLocaleString()}</h5>
-      <h5>Date: ${event.event_date}</h5>
+      <h5>Date: ${event.start_time.split(" ")[0]}</h5>
     </div>
   `;
 

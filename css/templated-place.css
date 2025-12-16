@@ -134,12 +134,14 @@ input {
 .event-places .event {
   display: flex;
   gap: 50px;
-  align-items: flex-start;
-  justify-content: flex-start;
+  align-items: center;
+  justify-content: center;
 }
 
 .event-places img {
-  width: 360px;
+  width: 150%;
+  height: 250px;
+  max-width: 450px;
   transition: all 0.4s ease;
 }
 

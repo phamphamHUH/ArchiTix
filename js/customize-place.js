@@ -1,3 +1,9 @@
+document.addEventListener("DOMContentLoaded", () => {
+  if (!Auth.isLoggedIn() && window.location.pathname !== "/index.html") {
+    Auth.logout();
+  }
+});
+
 const tools = [
   {
     src: "../../assets/icons/SelectTool.png",
@@ -124,14 +130,6 @@ window.addEventListener("click", (e) => {
   if (!iconsPopup.contains(e.target) && e.target !== iconsIcon) {
     iconsPopup.style.display = "none";
   }
-});
-
-// DETECTS MOUSE MOVEMENT FOR MOUSE GLOW
-document.addEventListener("mousemove", (e) => {
-  const glow = document.getElementById("mouse-glow");
-  glow.style.transform = `translate(${e.clientX - 125}px, ${
-    e.clientY - 125
-  }px)`;
 });
 
 const hideIcon = document.getElementById("hide");

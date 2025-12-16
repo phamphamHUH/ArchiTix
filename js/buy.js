@@ -28,14 +28,14 @@ function createCard(event) {
   const card = document.createElement("div");
   card.classList.add("event");
   card.innerHTML = `
-    <img src="${event.image}" alt="Event Image" class="image"/>
+    <img src="${event.event_image}" alt="Event Image" class="image"/>
     <div class="eventDetails">
-      <h3>${event.name}</h3>
+      <h3>${event.event_name}</h3>
       <h5>Place: ${event.venue_name}</h5>
       <h5>Price: ₱${Number(event.min_price).toLocaleString()} - ₱${Number(
     event.max_price
   ).toLocaleString()}</h5>
-      <h5>Date: ${event.event_date}</h5>
+      <h5>Date: ${event.start_time.split(" ")[0]}</h5>
         <a href="../../event-details.html">
           <button>
             <div><img src="../../assets/icons/seat.png" alt="Seat Icon" /></div>
@@ -51,6 +51,7 @@ function createCard(event) {
 async function loadEvents() {
   try {
     eventsList = await fetchEvents();
+    console.log(eventsList);
 
     showingContainer.innerHTML = "";
     upcomingContainer.innerHTML = "";
@@ -113,13 +114,17 @@ function filter(filterCriteria) {
       break;
     case "Newest First":
       sortedEvents.sort(
-        (a, b) => new Date(b.event_date) - new Date(a.event_date)
+        (a, b) =>
+          new Date(b.start_time.split(" ")[0]) -
+          new Date(a.start_time.split(" ")[0])
       );
 
       break;
     case "Oldest First":
       sortedEvents.sort(
-        (a, b) => new Date(a.event_date) - new Date(b.event_date)
+        (a, b) =>
+          new Date(a.start_time.split(" ")[0]) -
+          new Date(b.start_time.split(" ")[0])
       );
       break;
   }
@@ -145,7 +150,7 @@ function search(searchValue) {
 
   const filteredEvents = eventsList.events.filter(
     (event) =>
-      event.name.toLowerCase().includes(searchValue.toLowerCase()) ||
+      event.event_name.toLowerCase().includes(searchValue.toLowerCase()) ||
       event.venue_name.toLowerCase().includes(searchValue.toLowerCase())
   );
 

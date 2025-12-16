@@ -126,14 +126,6 @@ window.addEventListener("click", (e) => {
   }
 });
 
-// DETECTS MOUSE MOVEMENT FOR MOUSE GLOW
-document.addEventListener("mousemove", (e) => {
-  const glow = document.getElementById("mouse-glow");
-  glow.style.transform = `translate(${e.clientX - 125}px, ${
-    e.clientY - 125
-  }px)`;
-});
-
 const hideIcon = document.getElementById("hide");
 const expandIcon = document.getElementById("expand");
 const infoPopup = document.getElementById("event-info");
@@ -155,7 +147,7 @@ expandIcon.addEventListener("click", () => {
 
 const seatImages = [
   {
-    name: "Sta. Rosa Complex",
+    name: "Sta. Rosa Sports Complex",
     src: "../../assets/images/StaRosaSportsComplex.png",
   },
   {

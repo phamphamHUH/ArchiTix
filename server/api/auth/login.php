@@ -25,7 +25,7 @@ if (!$email || !$password) {
 
 // Fetch user
 $stmt = $conn->prepare(
-    "SELECT user_id, password_hash, role FROM users WHERE email = ?"
+    "SELECT id, password, role, profile_pic FROM users WHERE email = ?"
 );
 $stmt->bind_param("s", $email);
 $stmt->execute();
@@ -39,7 +39,7 @@ if ($result->num_rows === 0) {
 $user = $result->fetch_assoc();
 
 // Verify password
-if (!password_verify($password, $user['password_hash'])) {
+if (!password_verify($password, $user['password'])) {
     echo json_encode(["error" => "Invalid email or password"]);
     exit;
 }
@@ -47,9 +47,10 @@ if (!password_verify($password, $user['password_hash'])) {
 $payload = [
     "exp" => time() + $_ENV["JWT_EXPIRY"],
     "user" => [
-        "id" => $user['user_id'],
+        "id" => $user['id'],
         "email" => $email,
-        "role" => $user['role']
+        "role" => $user['role'],
+        "profile_pic" => $user['profile_pic']
     ]
 ];
 

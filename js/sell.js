@@ -54,15 +54,16 @@ const registerToLogin = document.getElementById("open-login");
 const loginToRegister = document.getElementById("open-register");
 
 let currentMonth = 10;
-let isLoggedIn = false;
 openButtons.forEach((btn) => {
   btn.addEventListener("click", () => {
-    if (!isLoggedIn) {
+    if (!Auth.isLoggedIn()) {
       registerModal.style.display = "block";
       return;
     }
+
     modal.style.display = "flex";
     document.body.style.overflow = "hidden";
+
     if (btn.id === "customBtn") {
       currentRedirect = "/customize-place.html";
     } else if (btn.id === "templatedBtn") {
@@ -197,6 +198,9 @@ document
       }
 
       alert("Registration successful");
+      registerModal.style.display = "none";
+      loginModal.style.display = "flex";
+      document.body.style.overflow = "hidden";
     } catch (err) {
       console.error("Register error:", err);
       alert("Server error");
@@ -236,10 +240,10 @@ if (loginForm) {
 
       if (result.success) {
         alert(result.success);
-        localStorage.setItem("token", result.payload);
+        Auth.saveToken(result.payload);
+
         if (loginModal) loginModal.style.display = "none";
         document.body.style.overflow = "auto";
-        isLoggedIn = true;
       } else if (result.error) {
         alert(result.error);
       } else {

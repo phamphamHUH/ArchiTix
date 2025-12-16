@@ -29,13 +29,13 @@ if (!$conn) {
 
 // Fetch events using prepared statement
 $stmt = $conn->prepare("
-    SELECT e.event_id, e.title, e.description, e.start_time, e.end_time, 
-           e.min_price, e.max_price, e.status, e.image, e.trending,
-           v.name AS venue_name, CONCAT(u.first_name, ' ', u.last_name) AS organizer_name
+    SELECT e.id, e.event_name,e.min_price, e.max_price, e.description, e.status, 
+           e.trending, e.start_time, e.end_time, e.event_image,
+           v.venue_name AS venue_name, CONCAT(u.first_name, ' ', u.last_name) AS organizer_name
     FROM events e
-    JOIN venues v ON e.venue_id = v.venue_id
-    JOIN organizers o ON e.organizer_id = o.organizer_id
-    JOIN users u ON o.user_id = u.user_id
+    JOIN venues v ON e.venue_id = v.id
+    JOIN organizers o ON e.organizer_id = o.id
+    JOIN users u ON o.user_id = u.id
     ORDER BY e.start_time ASC
 ");
 
@@ -50,8 +50,7 @@ if ($result && $result->num_rows > 0) {
 }
 
 echo json_encode([
-    'success' => true,
-    'data' => $events
+    'events' => $events
 ]);
 
 $stmt->close();

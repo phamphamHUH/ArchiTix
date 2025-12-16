@@ -17,13 +17,15 @@ function createCard(venue) {
   const card = document.createElement("div");
   card.classList.add("event");
   card.innerHTML = `
-    <img src="${venue.image}" alt="Event Image" class="image"/>
+    <img src="${venue.venue_image}" alt="Event Image" class="image"/>
     <div class="eventDetails">
-      <h3>${venue.name}</h3>
-      <h5>Location: ${venue.location}</h5>
-      <h5>Rate: ${venue.rate}</h5>
-      <h5>Capacity: ${venue.capacity}</h5>
-        <a href="../../edit-event.html?name=${encodeURIComponent(venue.name)}">
+      <h3>${venue.venue_name}</h3>
+      <h5>Location: ${venue.city}</h5>
+      <h5>Rate: ${venue.commission_rate * 100}%</h5>
+      <h5>Capacity: ${venue.capacity.toLocaleString()}</h5>
+        <a href="../../edit-event.html?name=${encodeURIComponent(
+          venue.venue_name
+        )}">
           <button>
             <div><img src="../../assets/images/edit.png" alt="Edit Icon" /></div>
             Edit Venue
@@ -49,8 +51,15 @@ async function loadVenues() {
 }
 
 loadVenues();
-// SEARCH FUNCTION
+
+const searchInput = document.getElementById("search-input");
+const searchIcon = document.querySelector(".search-icon");
+const filterInput = document.getElementById("event-filter");
+const filterIcon = document.querySelector(".filter-icon");
+const filterValue = document.getElementById("event-filter");
 const searchValue = document.getElementById("search-input");
+
+// SEARCH FUNCTION
 searchValue.addEventListener("input", () => {
   search(searchValue.value);
 });
@@ -73,8 +82,6 @@ function search(searchValue) {
   });
 }
 // FILTER FUNCTION
-const filterValue = document.getElementById("event-filter");
-
 filterIcon.addEventListener("click", () => {
   filterInput.focus();
 });

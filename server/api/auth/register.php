@@ -31,7 +31,7 @@ if (!$firstName || !$lastName || !$email || !$password) {
 $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
 
 // Check if email exists
-$stmt = $conn->prepare("SELECT user_id FROM users WHERE email = ?");
+$stmt = $conn->prepare("SELECT id FROM users WHERE email = ?");
 $stmt->bind_param("s", $email);
 $stmt->execute();
 $stmt->store_result();
@@ -44,7 +44,7 @@ $stmt->close();
 
 // Insert user with role
 $stmt = $conn->prepare(
-    "INSERT INTO users (first_name, last_name, email, password_hash, role)
+    "INSERT INTO users (first_name, last_name, email, password, role)
      VALUES (?, ?, ?, ?, ?)"
 );
 
