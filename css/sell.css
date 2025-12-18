@@ -365,11 +365,16 @@ form input {
   gap: 19px;
 }
 
-.terms {
+.terms-conditions {
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 1px;
+}
+
+.terms-conditions input {
+  width: 30px;
+  height: 19.2px;
 }
 
 .create {
@@ -399,17 +404,13 @@ form input {
   margin-top: 0;
 }
 
-.terms input {
-  width: 30px;
-  height: 19.2px;
-}
 /* PROFILE MODAL */
 .profile-content {
   display: grid;
   grid-template-columns: 1fr 1fr;
 }
 
-.closeProfile-btn {
+.closeBtn {
   position: absolute;
 }
 
@@ -441,7 +442,7 @@ form input {
   font-size: 14px;
 }
 
-.closeProfile-btn {
+.closeBtn {
   width: 10px;
   height: 10px;
   border: none;
@@ -489,6 +490,79 @@ form input {
 .text-redirect {
   font-weight: 100;
   cursor: pointer;
+}
+
+
+.profile-overlay-terms{
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.35);
+  backdrop-filter: blur(6px);
+  display: none; /* hide by default */
+  justify-content: center;
+  align-items: center;
+  z-index: 800;
+}
+
+
+.terms{
+  display: flex;
+  border-radius: 5px;
+  flex-direction: column;
+  padding: 10px;
+  border: solid white;
+  border-width: 1px;
+}
+
+.terms p{
+  margin-bottom: 10px;
+}
+
+.terms ol{
+  overflow-y: scroll;
+  max-height: 220px;
+  padding: 10px;
+}
+
+.terms li{
+  font-size: 0.8rem;
+  margin-bottom: 5px;
+  list-style: none;
+}
+
+.terms-buttons{
+  display: flex;
+  gap: 10px;
+  align-self: end;
+  justify-self: end;
+}
+
+.terms-buttons button{
+  padding: 10px;
+  font-size: 0.6rem;  
+  border-radius: 5px;
+  border: none;
+}
+
+#decline{
+  background-color: black;
+  color: rgb(119, 118, 118);
+}
+
+#agree{
+  background-color: #36a854;
+    color: black;
+}
+
+.profile-overlay-terms .create{
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.profile-overlay-terms h2{
+  font-size: 1.9rem;
+  text-align: start;
 }
 
 /* TABLETS (≤1024px) */
@@ -705,18 +779,18 @@ form input {
   }
 
   /* Checkbox styling for mobile */
-  .terms {
+  .terms-conditions {
     font-size: 0.9rem;
     gap: 8px;
   }
 
-  .terms input {
+  .terms-conditions input {
     width: 20px;
     height: 16px;
   }
 
   /* Close button styling */
-  .closeProfile-btn {
+  .closeBtn {
     width: 25px;
     height: 25px;
     font-size: 1.2rem;

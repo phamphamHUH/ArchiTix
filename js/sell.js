@@ -46,12 +46,21 @@ const datesContainer = document.querySelector(".dates");
 const prevBtn = document.getElementById("prevBtn");
 const nextBtn = document.getElementById("nextBtn");
 const proceedBtn = document.querySelector(".proceedBtn");
-// REGISTER/LOGIN POPUP
+// REGISTER/LOGIN/TERMS POPUP
 const registerModal = document.getElementById("profile-overlay-register");
 const loginModal = document.getElementById("profile-overlay-login");
-const closeProfileBtn = document.getElementById("closeProfileBtn");
+const termsModal = document.getElementById("profile-overlay-terms");
 const registerToLogin = document.getElementById("open-login");
+const registerToTerms = document.getElementById("open-terms");
 const loginToRegister = document.getElementById("open-register");
+// BUTTON VARIABLES
+const agree = document.getElementById("agree");
+const decline = document.getElementById("decline");
+const agreeBox = document.getElementById("agreeBox");
+const googleReg = document.getElementById("google-register");
+const appleReg = document.getElementById("apple-register");
+const googleLog = document.getElementById("google-login");
+const appleLog = document.getElementById("apple-login");
 
 let currentMonth = 10;
 openButtons.forEach((btn) => {
@@ -74,9 +83,15 @@ openButtons.forEach((btn) => {
   });
 });
 
+// TEXT REDIRECTS FUNCTIONALITY
 registerToLogin.addEventListener("click", () => {
   registerModal.style.display = "none";
   loginModal.style.display = "flex";
+  document.body.style.overflow = "hidden";
+});
+registerToTerms.addEventListener("click", () => {
+  registerModal.style.display = "none";
+  termsModal.style.display = "flex";
   document.body.style.overflow = "hidden";
 });
 loginToRegister.addEventListener("click", () => {
@@ -85,10 +100,42 @@ loginToRegister.addEventListener("click", () => {
   document.body.style.overflow = "hidden";
 });
 
+// BUTTONS FUNCTIONALITY
+agree.addEventListener("click", () => {
+  termsModal.style.display = "none";
+  registerModal.style.display = "flex";
+  document.body.style.overflow = "hidden";
+  agreeBox.checked = true;
+});
+
+decline.addEventListener("click", () => {
+  termsModal.style.display = "none";
+  registerModal.style.display = "flex";
+  document.body.style.overflow = "hidden";
+  agreeBox.checked = false;
+});
+
+googleReg.addEventListener("click", () => {
+  alert("Signing-in using Google account");
+});
+
+appleReg.addEventListener("click", () => {
+  alert("Signing-in using Apple account");
+});
+
+googleLog.addEventListener("click", () => {
+  alert("Logging-in using Google account");
+});
+
+appleLog.addEventListener("click", () => {
+  alert("Logging-in using Apple account");
+});
+
 // CLOSE BUTTON FUNCTIONALITY
 attachClose("closeDateModal", "popup-modal");
 attachClose("closeProfileRegister", "profile-overlay-register");
 attachClose("closeProfileLogin", "profile-overlay-login");
+attachClose("closeTerms", "profile-overlay-terms");
 function attachClose(btnId, modalId) {
   const btn = document.getElementById(btnId);
   const modal = document.getElementById(modalId);
@@ -165,8 +212,7 @@ document
   .getElementById("registerForm")
   .addEventListener("submit", async (e) => {
     e.preventDefault();
-    const agree = document.getElementById("agree");
-    if (!agree || !agree.checked) {
+    if (!agreeBox || !agreeBox.checked) {
       alert("You must agree to the Terms and Conditions to register.");
       return;
     }

@@ -54,9 +54,8 @@ loadVenues();
 
 const searchInput = document.getElementById("search-input");
 const searchIcon = document.querySelector(".search-icon");
-const filterInput = document.getElementById("event-filter");
 const filterIcon = document.querySelector(".filter-icon");
-const filterValue = document.getElementById("event-filter");
+const filterValue = document.getElementById("venue-filter");
 const searchValue = document.getElementById("search-input");
 
 // SEARCH FUNCTION
@@ -73,8 +72,8 @@ function search(searchValue) {
 
   const filteredVenues = venuesList.venues.filter(
     (e) =>
-      e.name.toLowerCase().includes(searchValue.toLowerCase()) ||
-      e.location.toLowerCase().includes(searchValue.toLowerCase())
+      e.venue_name.toLowerCase().includes(searchValue.toLowerCase()) ||
+      e.city.toLowerCase().includes(searchValue.toLowerCase())
   );
 
   filteredVenues.forEach((venue) => {
@@ -83,7 +82,7 @@ function search(searchValue) {
 }
 // FILTER FUNCTION
 filterIcon.addEventListener("click", () => {
-  filterInput.focus();
+  filterValue.focus();
 });
 
 filterValue.addEventListener("change", () => {
@@ -117,13 +116,13 @@ function filter(filterCriteria) {
       break;
 
     case "Rate: 10-12":
-      type = "rate";
+      type = "commission_rate";
       min = 10;
       max = 12;
       break;
 
     case "Rate: 13-15":
-      type = "rate";
+      type = "commission_rate";
       min = 13;
       max = 15;
       break;
