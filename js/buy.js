@@ -31,12 +31,12 @@ function createCard(event) {
     <img src="${event.event_image}" alt="Event Image" class="image"/>
     <div class="eventDetails">
       <h3>${event.event_name}</h3>
-      <h5>Place: ${event.venue_name}</h5>
+      <h5>Venue: ${event.venue_name}</h5>
       <h5>Price: ₱${Number(event.min_price).toLocaleString()} - ₱${Number(
     event.max_price
   ).toLocaleString()}</h5>
       <h5>Date: ${event.start_time.split(" ")[0]}</h5>
-        <a href="../../event-details.html">
+        <a href="../../event-details.html?id=${event.id}">
           <button>
             <div><img src="../../assets/icons/seat.png" alt="Seat Icon" /></div>
             View Seats

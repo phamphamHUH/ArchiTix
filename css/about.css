@@ -24,7 +24,8 @@ main {
 }
 
 main img {
-  width: 510px;
+  width: 100%;
+  max-width: 510px;
   align-self: center;
   margin-top: 30px;
 }
@@ -52,7 +53,8 @@ h2 {
 }
 
 main section div p {
-  width: 950px;
+  width: 100%;
+  max-width: 950px;
   font-size: 1.3rem;
   text-align: center;
   line-height: 50px;
@@ -88,3 +90,102 @@ main section div {
 .mvWrappers p {
   width: 450px;
 }
+
+/* TABLET */
+@media (max-width: 1024px) {
+  main section div{
+    align-items: center;
+    justify-content: center;  
+  }
+  main section div p{
+    width: 80%; 
+  }
+}
+
+/* MOBILE (≤768px) */
+@media (max-width: 768px) {
+  .intro p{
+    font-size: 1.1rem;
+    line-height: 35px;
+  }
+
+  #headline {
+    width: 350px;
+    margin-top: 50px;
+  }
+
+  #glow {
+    width: 150px;
+    height: 40px;
+    top: 30px;
+  }
+
+  .intro img{
+    width: 50%;
+       margin: 0px;
+  }
+
+  .intro div{
+    gap: 30px;
+  }
+
+  #missionVision {
+    flex-direction: column;
+    gap: 30px;
+  }
+  .vertical {
+    display: none;
+  }
+  .mvWrappers p {
+    width: 80%;
+    font-size: 1.1rem;
+    line-height: 35px;
+  }
+
+}
+/* SMALL MOBILE (≤480px) */
+@media (max-width: 480px) {
+  #headline {
+    width: 270px;
+    margin-top: 50px;
+  }
+
+    #glow {
+    width: 100px;
+    height: 50px;
+    top: 30px;
+  }
+
+  .intro img{
+    width: 40%;
+  }
+
+  .intro p{
+    font-size: 0.9rem;
+    line-height: 20px;
+  }
+
+  .intro{
+    gap: 30px;
+  }
+
+  .mvWrappers p {
+    width: 80%;
+    font-size: 0.9rem;
+    line-height: 20px;
+  }
+
+  .mvWrappers h2{
+    font-size: 1.4rem;
+  }
+
+  #missionVision {
+    gap: 20px;
+    padding: 30px;
+  }
+
+  .mvWrappers {
+    gap: 10px;
+  }
+}
+
