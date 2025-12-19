@@ -140,3 +140,9 @@ function filter(filterCriteria) {
     container.appendChild(createCard(venue));
   });
 }
+
+const back = document.getElementById("backButton");
+back.addEventListener("click", () => {
+  window.location.href = "../../sell.html";
+});
+loadEvents();

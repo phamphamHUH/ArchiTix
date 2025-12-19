@@ -35,7 +35,9 @@ function createCard(event) {
 
   // Parse seating map
   const seatingMap = JSON.parse(event.seating_map);
+  console.log(seatingMap);
   const categories = Object.keys(seatingMap);
+  renderSeats(seatingMap);
 
   // Event HTML
   card.innerHTML = `
@@ -63,16 +65,78 @@ function createCard(event) {
   // Create category buttons
   categories.forEach((category) => {
     const button = document.createElement("button");
+    const hyperlink = document.createElement("a");
+    hyperlink.href = `#${category}`;
     button.textContent = category;
 
     button.addEventListener("click", () => {
       console.log("Category clicked:", category);
     });
-
-    buttonContainer.appendChild(button);
+    hyperlink.appendChild(button);
+    buttonContainer.appendChild(hyperlink);
   });
 
   return card;
 }
 
+function renderSeats(seatingMap) {
+  const seatsContainer = document.getElementById("seats-container");
+  seatsContainer.innerHTML = "";
+  const header = document.createElement("h3");
+  header.textContent = "VENUE SEATS";
+  seatsContainer.appendChild(header);
+
+  Object.entries(seatingMap).forEach(([category, seats]) => {
+    // Category wrapper
+    const categoryDiv = document.createElement("div");
+    categoryDiv.classList.add("seat-category");
+
+    // Category title
+    const title = document.createElement("h3");
+    title.textContent = category;
+    title.id = category;
+
+    // Seat grid
+    const grid = document.createElement("div");
+    grid.classList.add("seat-grid");
+
+    seats.forEach((seatObj) => {
+      const seat = document.createElement("div");
+      seat.classList.add("seat");
+      seat.classList.add(seatObj.available ? "available" : "unavailable");
+      seat.textContent = seatObj.seat;
+      let selectedSeats = [];
+
+      if (seatObj.available) {
+        seat.addEventListener("click", () => {
+          const seatKey = `${category}-${seatObj.seat}`;
+
+          if (seat.classList.contains("selected")) {
+            seat.classList.remove("selected");
+            selectedSeats = selectedSeats.filter((s) => s !== seatKey);
+          } else {
+            seat.classList.add("selected");
+            selectedSeats.push(seatKey);
+          }
+        });
+      }
+
+      grid.appendChild(seat);
+    });
+
+    categoryDiv.appendChild(title);
+    categoryDiv.appendChild(grid);
+    seatsContainer.appendChild(categoryDiv);
+  });
+}
+
+const proceed = document.getElementById("proceed");
+proceed.addEventListener("click", () => {
+  alert("proceeding to payment");
+});
+
+const back = document.getElementById("backButton");
+back.addEventListener("click", () => {
+  window.location.href = "../../buy.html";
+});
 loadEvents();

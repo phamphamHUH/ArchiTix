@@ -1,0 +1,177 @@
+main {
+  padding: 2rem;
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+  gap: 50px;
+  position: relative;
+}
+
+/* HEADER GLOW EFFECT */
+#glow {
+  position: absolute;
+  top: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 200px;
+  height: 50px;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(255, 255, 255, 0.9) 10%,
+    rgba(255, 255, 255, 0.5) 40%,
+    rgba(0, 0, 0, 0) 70%
+  );
+  filter: blur(25px);
+  pointer-events: none;
+}
+
+header {
+  justify-content: space-between;
+  padding: 0px 10px 0px 10px;
+}
+
+.profile-wrapper {
+  margin-right: 10px;
+}
+
+a {
+  text-decoration: none;
+}
+
+#sidebar {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  height: 580px;
+}
+
+.navs {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  gap: 40px;
+}
+
+.icons {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  gap: 10px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.icons:hover {
+  transform: scale(1.1);
+}
+
+.icons:active {
+  transform: scale(1);
+}
+
+.icons img {
+  width: 100%;
+  max-width: 50px;
+}
+
+.switchButton {
+  display: flex;
+  align-self: center;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 90%;
+  border-radius: 20px;
+  border: none;
+  background-color: #36a854;
+  color: black;
+  font-size: 1.2rem;
+  font-weight: 500;
+  padding: 5px 10px 0px 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.switchButton:hover {
+  transform: scale(1.1);
+}
+
+.switchButton img {
+  width: 100%;
+  max-width: 70px;
+  background-color: #36a854;
+}
+
+.switchButton:active {
+  transform: scale(1);
+}
+
+#contents {
+  display: grid;
+  grid-template-columns: 2fr 3fr;
+  border: solid;
+  padding: 20px;
+}
+
+#profile {
+  border: solid;
+  background-color: white;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  padding: 10px;
+  gap: 10px;
+  position: relative;
+}
+
+#profile img {
+  width: 100%;
+  max-width: 400px;
+  border-radius: 20px;
+}
+
+#profile div,
+#profile label,
+#profile h3,
+#profile h2 {
+  background-color: white;
+  color: black;
+}
+
+#profile label {
+  color: rgb(188, 188, 188);
+}
+
+#profile h2 {
+  color: rgb(188, 188, 188);
+  text-align: center;
+  position: absolute;
+  bottom: 20px;
+  left: 95px;
+}
+
+.info {
+  border: solid;
+  border-width: 1px;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+#other {
+  display: flex;
+  gap: 10px;
+}
+
+#userName {
+  width: 395px;
+}
+
+#userEmail {
+  width: 220px;
+}
+
+#contactNum {
+  width: 153px;
+}

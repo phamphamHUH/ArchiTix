@@ -193,6 +193,9 @@ const loadPfp = () => {
     const token = localStorage.getItem("token");
     const payload = JSON.parse(atob(token.split(".")[1]));
     pfp.src = payload.user.profile_pic;
+    pfp.addEventListener("click", () => {
+      window.location.href = "/profile.html";
+    });
   }
 };
 document.addEventListener("DOMContentLoaded", () => {
