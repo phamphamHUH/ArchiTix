@@ -36,13 +36,11 @@ function createCard(event) {
     event.max_price
   ).toLocaleString()}</h5>
       <h5>Date: ${event.start_time.split(" ")[0]}</h5>
-        <a href="../../event-details.html?id=${event.id}">
-          <button>
-            <div><img src="../../assets/icons/seat.png" alt="Seat Icon" /></div>
-            View Seats
-          </button>
-        </a>
-    </div>
+      <button class="viewSeatsBtn" data-id="${event.id}">
+        <div><img src="../../assets/icons/seat.png" alt="Seat Icon" /></div>
+        View Seats
+      </button>
+    </div> 
     
   `;
   return card;
@@ -157,5 +155,200 @@ function search(searchValue) {
   filteredEvents.forEach((e) => {
     if (e.status === "upcoming") upcomingContainer.appendChild(createCard(e));
     else showingContainer.appendChild(createCard(e));
+  });
+}
+
+// REGISTER/LOGIN/TERMS POPUP
+const registerModal = document.getElementById("profile-overlay-register");
+const loginModal = document.getElementById("profile-overlay-login");
+const termsModal = document.getElementById("profile-overlay-terms");
+const registerToLogin = document.getElementById("open-login");
+const registerToTerms = document.getElementById("open-terms");
+const loginToRegister = document.getElementById("open-register");
+// BUTTON VARIABLES
+const agree = document.getElementById("agree");
+const decline = document.getElementById("decline");
+const agreeBox = document.getElementById("agreeBox");
+const googleReg = document.getElementById("google-register");
+const appleReg = document.getElementById("apple-register");
+const googleLog = document.getElementById("google-login");
+const appleLog = document.getElementById("apple-login");
+
+document.addEventListener("click", (e) => {
+  const btn = e.target.closest(".viewSeatsBtn");
+  if (!btn) return;
+
+  const eventId = btn.dataset.id;
+
+  if (!Auth.isLoggedIn()) {
+    registerModal.style.display = "flex";
+    document.body.style.overflow = "hidden";
+    return;
+  }
+
+  window.location.href = `../../event-details.html?id=${eventId}`;
+});
+
+// TEXT REDIRECTS FUNCTIONALITY
+registerToLogin.addEventListener("click", () => {
+  registerModal.style.display = "none";
+  loginModal.style.display = "flex";
+  document.body.style.overflow = "hidden";
+});
+registerToTerms.addEventListener("click", () => {
+  registerModal.style.display = "none";
+  termsModal.style.display = "flex";
+  document.body.style.overflow = "hidden";
+});
+loginToRegister.addEventListener("click", () => {
+  loginModal.style.display = "none";
+  registerModal.style.display = "flex";
+  document.body.style.overflow = "hidden";
+});
+
+// BUTTONS FUNCTIONALITY
+agree.addEventListener("click", () => {
+  termsModal.style.display = "none";
+  registerModal.style.display = "flex";
+  document.body.style.overflow = "hidden";
+  agreeBox.checked = true;
+});
+
+decline.addEventListener("click", () => {
+  termsModal.style.display = "none";
+  registerModal.style.display = "flex";
+  document.body.style.overflow = "hidden";
+  agreeBox.checked = false;
+});
+
+googleReg.addEventListener("click", () => {
+  alert("Signing-in using Google account");
+});
+
+appleReg.addEventListener("click", () => {
+  alert("Signing-in using Apple account");
+});
+
+googleLog.addEventListener("click", () => {
+  alert("Logging-in using Google account");
+});
+
+appleLog.addEventListener("click", () => {
+  alert("Logging-in using Apple account");
+});
+// CLOSE BUTTONS FUNCTIONALITY
+attachClose("closeProfileRegister", "profile-overlay-register");
+attachClose("closeProfileLogin", "profile-overlay-login");
+attachClose("closeTerms", "profile-overlay-terms");
+function attachClose(btnId, modalId) {
+  const btn = document.getElementById(btnId);
+  const modal = document.getElementById(modalId);
+
+  if (!btn || !modal) return;
+
+  btn.addEventListener("click", () => {
+    modal.style.display = "none";
+    document.body.style.overflow = "auto";
+  });
+}
+// CLOSES MODAL AFTER OUTSIDE MODAL CLICK FUNCTIONALITY
+window.addEventListener("click", (e) => {
+  if (e.target === termsModal) termsModal.style.display = "none";
+  if (e.target === registerModal) registerModal.style.display = "none";
+  if (e.target === loginModal) loginModal.style.display = "none";
+  document.body.style.overflow = "auto";
+});
+
+document
+  .getElementById("registerForm")
+  .addEventListener("submit", async (e) => {
+    e.preventDefault();
+    if (!agreeBox || !agreeBox.checked) {
+      alert("You must agree to the Terms and Conditions to register.");
+      return;
+    }
+    const data = {
+      firstName: document.getElementById("firstName").value.trim(),
+      lastName: document.getElementById("lastName").value.trim(),
+      email: document.getElementById("email").value.trim(),
+      password: document.getElementById("password").value,
+    };
+
+    try {
+      const res = await fetch(
+        "http://localhost/ArchiTIx/server/api/auth/register.php",
+        {
+          method: "POST",
+          credentials: "include",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(data),
+        }
+      );
+
+      const result = await res.json();
+
+      if (result.error) {
+        alert(result.error);
+        return;
+      }
+
+      alert("Registration successful");
+      registerModal.style.display = "none";
+      loginModal.style.display = "flex";
+      document.body.style.overflow = "hidden";
+    } catch (err) {
+      console.error("Register error:", err);
+      alert("Server error");
+    }
+  });
+
+// LOGIN
+const loginForm = document.getElementById("loginForm");
+if (loginForm) {
+  loginForm.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const data = {
+      email: document.getElementById("logEmail").value.trim(),
+      password: document.getElementById("logPassword").value,
+    };
+    try {
+      const res = await fetch(
+        "http://localhost/ArchiTIx/server/api/auth/login.php",
+        {
+          method: "POST",
+          credentials: "include",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(data),
+        }
+      );
+
+      let result;
+      try {
+        result = await res.json();
+      } catch (err) {
+        console.error("Invalid Server Response:", err);
+        alert("Server Error. Please try again.");
+        return;
+      }
+
+      if (result.success) {
+        alert(result.success);
+        Auth.saveToken(result.payload);
+
+        if (loginModal) loginModal.style.display = "none";
+        document.body.style.overflow = "auto";
+      } else if (result.error) {
+        alert(result.error);
+      } else {
+        alert("Something went wrong. Please try again.");
+      }
+    } catch (err) {
+      console.error("Login error:", err);
+      alert("Network error. Check server and try again.");
+    }
   });
 }
